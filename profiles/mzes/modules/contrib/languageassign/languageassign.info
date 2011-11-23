@@ -1,0 +1,16 @@
+name = Language assignment
+description = Allows bulk assignment of languages to nodes and users.
+dependencies[] = locale
+package = Multilanguage
+core = 7.x
+
+files[] = languageassign.admin.inc
+files[] = languageassign.module
+files[] = languageassign.test
+
+; Information added by drupal.org packaging script on 2011-06-17
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "languageassign"
+datestamp = "1308312666"
+

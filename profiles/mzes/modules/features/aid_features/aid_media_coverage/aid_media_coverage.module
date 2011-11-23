@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AID Media Coverage feature.
+ */
+
+include_once('aid_media_coverage.features.inc');

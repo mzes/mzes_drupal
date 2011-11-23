@@ -1,0 +1,6 @@
+File Aliases 7.x-1.x-dev, xxxx-xx-xx (Developmental release)
+--------------------------------------------------------------------------------
+
+- #1136608: Fixed issue with default filealias path.
+- #1102174 by LPCA: Updated module package.
+- Initial 7.x release.

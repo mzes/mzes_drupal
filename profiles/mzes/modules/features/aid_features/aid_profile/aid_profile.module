@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AID Profile feature.
+ */
+
+include_once('aid_profile.features.inc');

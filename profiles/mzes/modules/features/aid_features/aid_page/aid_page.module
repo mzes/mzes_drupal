@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AID Page feature.
+ */
+
+include_once('aid_page.features.inc');

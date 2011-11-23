@@ -1,0 +1,221 @@
+core = 7.x
+name = MZES
+description = Custom MZES install profile
+version = 1.0
+
+
+; Core
+
+;; Essentials
+dependencies[] = block
+dependencies[] = book
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contact
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = dblog
+dependencies[] = image
+dependencies[] = locale
+dependencies[] = field
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = translation
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = overlay
+dependencies[] = rdf
+dependencies[] = statistics
+
+;; Optional
+;dependencies[] = syslog
+; Deactivate toolbar if admin_menu_toolbar is activated
+;dependencies[] = toolbar
+
+
+; Contrib
+
+;; Site Building
+dependencies[] = context
+dependencies[] = context_ui
+;dependencies[] = context_admin
+;dependencies[] = context_admin_vbo
+
+dependencies[] = ctools
+dependencies[] = ctools_access_ruleset
+
+dependencies[] = diff
+
+dependencies[] = ds
+dependencies[] = ds_extras
+dependencies[] = ds_forms
+dependencies[] = ds_search
+
+dependencies[] = entity
+dependencies[] = entitycache
+
+dependencies[] = features
+
+dependencies[] = page_manager
+dependencies[] = panels
+
+dependencies[] = rel
+
+dependencies[] = strongarm
+
+dependencies[] = views
+dependencies[] = views_content
+dependencies[] = views_ui
+
+
+
+;; Essential
+dependencies[] = addressfield
+dependencies[] = addthis
+dependencies[] = admin_devel
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
+dependencies[] = advanced_help
+dependencies[] = auto_nodetitle
+
+dependencies[] = biblio
+dependencies[] = biblio_bibtex
+dependencies[] = biblio_citeproc
+dependencies[] = book_made_simple
+
+dependencies[] = calendar
+dependencies[] = calendar_ical
+dependencies[] = comment_notify
+dependencies[] = date
+dependencies[] = date_api
+dependencies[] = date_views
+
+dependencies[] = email
+dependencies[] = entity_token
+
+dependencies[] = field_group
+dependencies[] = field_permissions
+dependencies[] = file_aliases
+dependencies[] = filefield_paths
+
+dependencies[] = i18n
+dependencies[] = i18n_block
+dependencies[] = i18n_field
+dependencies[] = i18n_menu
+dependencies[] = i18n_node
+dependencies[] = i18n_path
+dependencies[] = i18n_redirect
+dependencies[] = i18n_string
+dependencies[] = i18n_sync
+dependencies[] = i18n_taxonomy
+dependencies[] = i18n_translation
+dependencies[] = i18n_variable
+dependencies[] = i18nviews
+
+dependencies[] = libraries
+dependencies[] = link
+
+dependencies[] = nodeconnect
+dependencies[] = node_reference
+
+dependencies[] = options_element
+
+dependencies[] = pathauto
+
+dependencies[] = stringoverrides
+
+dependencies[] = token
+dependencies[] = transliteration
+
+dependencies[] = user_reference
+
+dependencies[] = variable
+dependencies[] = variable_admin
+dependencies[] = variable_realm
+dependencies[] = variable_store
+
+dependencies[] = views_slideshow
+
+;; Media handling (preferred for media handling but not yet stable)
+dependencies[] = media
+dependencies[] = mediaelement
+;; Bug with install order :( media_browser_plus runs before taxonomy
+;dependencies[] = media_browser_plus
+;; Media Gallery still buggy
+;dependencies[] = media_gallery
+;dependencies[] = media_internet
+;dependencies[] = media_youtube
+; Styles
+dependencies[] = styles
+dependencies[] = file_styles
+; Upload
+;dependencies[] = plupload
+;dependencies[] = multiform
+
+
+;; Optional
+;dependencies[] = apachesolr
+;dependencies[] = apachesolr_attachments
+;dependencies[] = boxes
+;dependencies[] = google_analytics
+;dependencies[] = openid
+;dependencies[] = openidadmin
+;dependencies[] = taxonomy_menu
+;dependencies[] = twitter_pull
+;dependencies[] = views_accordion
+
+
+;; Developer
+dependencies[] = devel
+dependencies[] = devel_generate
+
+;; TBD
+;dependencies[] = admin
+;dependencies[] = captcha
+;dependencies[] = recaptcha
+;dependencies[] = elements
+; password policy is an openpublic custom module
+;dependencies[] = password_policy
+; Entity relationships (the future for handling entity relationships; upgrade path from references is promised)
+;dependencies[] = relation
+;dependencies[] = relation_dropzone
+;dependencies[] = relation_dummy_field
+
+; Custom
+
+
+; Features
+dependencies[] = aid_foundation
+dependencies[] = aid_event
+dependencies[] = aid_featured_content
+dependencies[] = aid_media_coverage
+dependencies[] = aid_news_item
+dependencies[] = aid_page
+dependencies[] = aid_press_release
+dependencies[] = aid_project
+dependencies[] = aid_profile
+dependencies[] = aid_research_program
+dependencies[] = aid_publication
+dependencies[] = aid_defaults
+
+dependencies[] = mzes_publication
+dependencies[] = mzes_profile
+dependencies[] = mzes_project
+
+; Files
+files[] = mzes.profile
+
+
+; Stylesheets
+;stylesheets[all][] = css/menu.css
+
+
+; Scripts
+;scripts[] = js/menu.js

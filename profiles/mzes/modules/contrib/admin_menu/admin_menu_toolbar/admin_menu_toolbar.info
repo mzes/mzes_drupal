@@ -1,0 +1,14 @@
+name = Administration menu Toolbar style
+description = A better Toolbar.
+package = Administration
+core = 7.x
+dependencies[] = admin_menu
+files[] = admin_menu_toolbar.module
+files[] = admin_menu_toolbar.install
+
+; Information added by drupal.org packaging script on 2011-10-16
+version = "7.x-3.x-dev"
+core = "7.x"
+project = "admin_menu"
+datestamp = "1318723314"
+

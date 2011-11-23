@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AID Defaults feature.
+ */
+
+include_once('aid_defaults.features.inc');

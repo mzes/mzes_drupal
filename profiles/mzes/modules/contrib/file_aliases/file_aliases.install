@@ -1,0 +1,52 @@
+<?php
+/**
+ * @file
+ * Contains installation functions for the File Aliases module.
+ */
+
+/**
+ * Implements hook_schema_alter().
+ *
+ * @param $schema
+ *   The system-wide schema
+ */
+function file_aliases_schema_alter(&$schema) {
+  $schema['filefield_paths']['fields']['filealias'] = array(
+    'type' => 'text',
+    'size' => 'medium',
+    'not null' => TRUE,
+    'serialize' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_install().
+ */
+function file_aliases_install() {
+  db_add_field('filefield_paths', 'filealias', array('type' => 'text', 'size' => 'medium', 'not null' => TRUE, 'serialize' => TRUE));
+
+  // Adjust module weight.
+  db_update('system')
+    ->fields(array('weight' => 1))
+    ->condition('name', 'file_aliases')
+    ->execute();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function file_aliases_uninstall() {
+  db_drop_field('filefield_paths', 'filealias');
+  //db_query("DELETE FROM {url_alias} WHERE src LIKE '%s'", 'filefield_paths/alias/%');
+}
+
+/**
+ * Implements hook_update_N().
+ */
+//function file_aliases_update_6100() {
+//  $ret = array();
+//
+//  $ret[] = update_sql("UPDATE {system} SET weight = 1 WHERE name = 'file_aliases'");
+//
+//  return $ret;
+//}

@@ -1,0 +1,15 @@
+name = Media Browser Plus
+description = Provides better UX for the media browser
+package = "Media"
+core = 7.x
+
+dependencies[] = media
+dependencies[] = taxonomy
+dependencies[] = multiform
+
+; Information added by drupal.org packaging script on 2011-11-21
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "media_browser_plus"
+datestamp = "1321835140"
+

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AID Featured Content feature.
+ */
+
+include_once('aid_featured_content.features.inc');

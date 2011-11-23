@@ -1,0 +1,217 @@
+<?php
+
+/**
+ * @file
+ * Create "Set language" operations and actions.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function languageassign_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#languageassign':
+      $output  = '<p>' . t('The Language assignment module allows you to set the language of multiple nodes or users at a time.  To use it, go to the <a href="@nodeupdate">bulk node update form</a> or <a href="@userupdate">bulk user update form</a>, open the Update options selector, and look for the "Set language" options.  (It also adds a Language column to the user table in the bulk user update form.)', array('@nodeupdate' => url('admin/content'), '@userupdate' => url('admin/people'))) . '</p>';
+      $output .= '<p>' . t('If <a href="http://drupal.org/project/views_bulk_operations">Views bulk operations</a> is installed at your site, then a "Set language" operation will also become available in your node and user bulk operation-style views.  To enable the operation, edit your view, click on the gear icon to edit the "Bulk operations" style options, check the "Set language" checkbox, and save the view.') . '</p>';
+      return $output;
+  }
+}
+
+
+/**
+ * Node operations
+ */
+
+/**
+ * Implements hook_node_operations().
+ * Provides a 'Set language' operation for each installed language and 'Language neutral'.
+ */
+function languageassign_node_operations() {
+  $languages = array(LANGUAGE_NONE => t('Language neutral')) + locale_language_list('name');
+  $operations = array();
+  foreach ($languages as $langcode => $name) {
+    $operations['languageassign-' . $langcode] = array(
+      'label' => t('Set language to !name', array('!name' => $name)),
+      'callback' => 'languageassign_node_operations_callback',
+      'callback arguments' => array($langcode),
+    );
+  }
+  return $operations;
+}
+
+/**
+ * Node operation callback:
+ * Updates the selected nodes' language.
+ * Stores the new language to be assigned; then languageassign_node_presave()
+ * updates the node and body languages.
+ */
+function languageassign_node_operations_callback($nodes, $langcode) {
+  node_mass_update($nodes, array('languageassign_langcode' => $langcode));
+}
+
+/**
+ * Implements hook_node_presave().
+ * Updates the nody and body languages.
+ */
+function languageassign_node_presave($node) {
+  if (property_exists($node, 'languageassign_langcode')) {
+    $newlang = $node->languageassign_langcode;
+    $oldlang = $node->language;
+    // Update node language:
+    $node->language = $newlang;
+    // Update body language:
+    $node->body[$newlang] = $node->body[$oldlang];
+    $node->body[$oldlang] = array();
+    unset($node->languageassign_langcode);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node_admin_content().
+ * In the node bulk update form, separates out the language assignment operations
+ * and groups them under a 'Set language' optgroup.
+ */
+function languageassign_form_node_admin_content_alter(&$form, $form_state, $form_id) {
+  if ($form_state['submitted']) {
+    return;
+  }
+  $options = $form['admin']['options']['operation']['#options'];
+  $LAopts = array();
+  foreach ($options as $operation => $label) {
+    if (substr($operation, 0, 15) == 'languageassign-') {
+      $langcode = substr($operation, 15);
+      $LAopts[$operation] = $langcode == LANGUAGE_NONE ? t('Language neutral') : locale_language_name($langcode);
+      unset($options[$operation]);
+    }
+  }
+  $form['admin']['options']['operation']['#options'] =
+    $options + array(t('Set language') => $LAopts);
+}
+
+
+/**
+ * User operations
+ */
+
+/**
+ * Implements hook_user_operations().
+ * Provides a 'Set language' operation for each installed language.
+ */
+function languageassign_user_operations() {
+  $operations = array();
+  foreach (locale_language_list('name') as $langcode => $name) {
+    $operations['languageassign-' . $langcode] = array(
+      'label' => t('Set language to !name', array('!name' => $name)),
+      'callback' => 'languageassign_user_operations_callback',
+      'callback arguments' => array($langcode),
+    );
+  }
+  return $operations;
+}
+
+/**
+ * User operation callback:
+ * Updates the selected users' language.
+ */
+function languageassign_user_operations_callback($users, $langcode) {
+  foreach ($users as $uid) {
+    $account = user_load((int)$uid);
+    user_save($account, array('language' => $langcode));
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ * Overrides the page callback for admin/people, in order to add a
+ * 'Language' column to the bulk user update form.
+ */
+function languageassign_menu_alter(&$items) {
+  foreach (array('admin/people', 'admin/people/create', 'admin/people/people') as $key) {
+    $items[$key]['page callback'] = 'languageassign_user_admin';
+    $items[$key]['file'] = 'languageassign.admin.inc';
+    $items[$key]['file path'] = drupal_get_path('module', 'languageassign');
+  }
+}
+
+
+/**
+ * Actions
+ */
+
+/**
+ * Implements hook_action_info().
+ * Provides integration with Views bulk operations.
+ */
+function languageassign_action_info() {
+  return array(
+    'languageassign_set_node_language_action' => array(
+      'type' => 'node',
+      'label' => t('Set node language'),
+      'configurable' => TRUE,
+      'behavior' => array('changes_property'),
+      'triggers' => array('any'),  // not really sure what should go here
+    ),
+    'languageassign_set_user_language_action' => array(
+      'type' => 'user',
+      'label' => t('Set user language'),
+      'configurable' => TRUE,
+      'triggers' => array('any'),  // not really sure what should go here
+    ),
+  );
+}
+
+/**
+ * Implements a configurable Drupal action.
+ * Sets the language field of a node and its body.
+ */
+function languageassign_set_node_language_action(&$node, $context) {
+  $oldlang = $node->language;
+  $newlang = $context['language'];
+  // set node language
+  $node->language = $newlang;
+  // set body language
+  $node->body[$newlang] = $node->body[$oldlang];
+  $node->body[$oldlang] = array();
+}
+
+function languageassign_set_node_language_action_form($context) {
+  $languages = array(LANGUAGE_NONE => t('Language neutral')) + locale_language_list('name');
+  // Provide radio buttons for selecting among <=5 languages, otherwise a dropdown.
+  $form['language'] = array(
+    '#type' => count($languages) <= 5 ? 'radios' : 'select',
+    '#title' => t('Set node language'),
+    '#default_value' => language_default('language'),
+    '#options' => $languages,
+    '#description' => t('The language to assign to the selected node(s).'),
+  );
+  return $form;
+}
+
+function languageassign_set_node_language_action_submit($form, $form_state) {
+  return array('language' => $form_state['values']['language']);
+}
+
+/**
+ * Implements a configurable Drupal action.
+ * Sets the language field of a user.
+ */
+function languageassign_set_user_language_action(&$user, $context) {
+  user_save($user, array('language' => $context['language']));
+}
+
+function languageassign_set_user_language_action_form($context) {
+  $languages = locale_language_list('name');
+  // Provide radio buttons for selecting among <=5 languages, otherwise a dropdown.
+  $form['language'] = array(
+    '#type' => count($languages) <= 5 ? 'radios' : 'select',
+    '#title' => t('Set user language'),
+    '#default_value' => language_default('language'),
+    '#options' => $languages,
+    '#description' => t('The language to assign to the selected user(s).'),
+  );
+  return $form;
+}
+
+function languageassign_set_user_language_action_submit($form, $form_state) {
+  return array('language' => $form_state['values']['language']);
+}

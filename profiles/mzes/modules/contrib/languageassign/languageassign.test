@@ -1,0 +1,215 @@
+<?php
+
+/**
+ * @file
+ * Tests for the Language Assignment module.
+ */
+
+/**
+ * Base class for Language Assignment tests.
+ */
+class LanguageAssignmentTestCase extends DrupalWebTestCase {
+  // Languages to add.
+  // LANGUAGE_NONE and 'en' are already present.
+  // Include at least one hyphenated language code here, to ensure against #942100.
+  protected $langcodes = array('pt-pt');
+
+  protected $languages;
+
+  public function setUp($perms) {
+
+    // Enable modules
+    parent::setUp('languageassign', 'translation');
+
+    // Create and log in a privileged user
+    $this->drupalLogin($this->drupalCreateUser(array_merge(array(
+        'administer languages',  // add languages
+//      'administer site configuration',  // clear cache
+    ), $perms)));
+
+    // Add languages
+    foreach ($this->langcodes as $langcode) {
+      $edit = array('langcode' => $langcode);
+      $this->drupalPost('admin/config/regional/language/add', $edit, t('Add language'));
+      $this->assertPattern(
+        '/The language .+ has been created and can now be used./', 
+        t('Check that language !langcode has been added.', array('!langcode' => $langcode)),
+        'Language assignment'
+      );
+    }
+    // Reset and retrieve the list of installed languages
+    //$this->drupalPost('admin/config/development/performance', NULL, t('Clear all caches'));
+    drupal_static_reset('language_list');
+    $this->languages = locale_language_list('name');
+  }
+}
+
+/**
+ * Functional tests for nodes.
+ */
+class LanguageAssignmentNodeTestCase extends LanguageAssignmentTestCase {
+  // Number of nodes to create:
+  private $nNodes = 3;
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Nodes',
+      'description' => 'Check that node languages are set correctly.',
+      'group' => 'Language Assignment',
+    );
+  }
+
+  public function setUp() {
+
+    // Initialize, with extra permissions for the logged in user
+    parent::setUp(array(
+      'administer content types',  // make content types multilingual
+      'access content overview',  // view admin/content
+      'administer nodes',  // use node bulk update form
+      'bypass node access',  // view, edit, delete all content
+    ));
+    // Add "Language neutral" for content
+    $this->languages += array(LANGUAGE_NONE => t('Language neutral'));
+
+    // Make the page content type multilingual
+    $edit = array('language_content_type' => 1);
+    $this->drupalPost('admin/structure/types/manage/page', $edit, t('Save content type'));
+    $this->drupalGet('admin/structure/types/manage/page');
+    $this->assertFieldByName(
+      'language_content_type',
+      '1', 
+      t('Check that the "page" content type is multilingual.')
+    );
+
+    // Create pages
+    for ($i = 0; $i<$this->nNodes; ++$i) {
+      $this->drupalCreateNode();
+    }
+  }
+
+  /**
+   * Check for 'Set language' operations in the node bulk update form.
+   */
+  public function testNodeLanguageOperations() {
+    $this->drupalGet('admin/content');
+    foreach ($this->languages as $langcode => $name) {
+      $this->assertFieldByXPath(
+        '//select[@name="operation"]/optgroup[@label="Set language"]/option',
+        "languageassign-$langcode", 
+        t('Check that a Set language > !name operation is available.', array('!name' => $name)),
+        'Language assignment'
+      );
+    }
+  }
+
+  /**
+   * Assign languages to nodes, then check that the correct language is assigned to each.
+   */
+  public function testNodeLanguageAssignment() {
+    // Ensure that the user can edit pages.
+    // Needed to check the node body languages, below.
+    $this->drupalGet('node/1/edit');
+    $this->assertText(
+      'Edit Basic page',
+      t('Check that user can edit pages'),
+      'Language assignment'
+    );
+
+    foreach ($this->languages as $langcode => $name) {
+
+      // Assign the language to all pages
+      $edit = array('operation' => "languageassign-$langcode");
+      for ($i = 1; $i <= $this->nNodes; ++$i) {
+        $edit["nodes[$i]"] = TRUE;
+      }
+      $this->drupalPost('admin/content', $edit, t('Update'));
+
+      for ($i = 1; $i <= $this->nNodes; ++$i) {
+        $this->drupalGet("node/$i/edit");
+        // Check that the node language is correctly set
+        $this->assertOptionSelected(
+          'edit-language',
+          $langcode,
+          t('Check that node !i is in !name.', array('!i' => "$i", '!name' => $name)),
+          'Language assignment'
+        );
+        // Check that the node body language is also correctly set (#1086454)
+        $body = $this->xpath("//textarea[@name='body[$langcode][0][value]']");
+        $this->assertNotEqual(
+          $body[0],
+          '',
+          t('Check that node !i body is in !name.', array('!i' => "$i", '!name' => $name)),
+          'Language assignment'
+        );
+      }
+    }
+  }
+}
+
+/**
+ * Functional tests for users.
+ */
+class LanguageAssignmentUserTestCase extends LanguageAssignmentTestCase {
+  // Number of users to create:
+  private $nUsers = 3;
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Users',
+      'description' => 'Check that user languages are set correctly.',
+      'group' => 'Language Assignment',
+    );
+  }
+
+  public function setUp() {
+
+    // Initialize, with extra permissions for the logged in user
+    parent::setUp(array(
+      'administer users',  // set language
+    ));
+    // Create users
+    for ($i = 0; $i<$this->nUsers; ++$i) {
+      $this->drupalCreateUser();
+    }
+  }
+
+  /**
+   * Check for 'Set language' operations in the user bulk update form.
+   */
+  public function testUserLanguageOperations() {
+    $this->drupalGet('admin/people');
+    foreach ($this->languages as $langcode => $name) {
+      $this->assertFieldByXPath(
+        '//select[@name="operation"]/optgroup[@label="Set language"]/option',
+        "languageassign-$langcode", 
+        t('Check that a Set language > !name operation is available.', array('!name' => $name)),
+        'Language assignment'
+      );
+    }
+  }
+
+  /**
+   * Assign languages to users, then check that the correct language is assigned to each.
+   */
+  public function testUserLanguageAssignment() {
+    foreach ($this->languages as $langcode => $name) {
+
+      // Assign the language to all users
+      $edit = array('operation' => "languageassign-$langcode");
+      for ($i = 3; $i <= 2+$this->nUsers; ++$i) {
+        $edit["accounts[$i]"] = TRUE;
+      }
+      $this->drupalPost('admin/people', $edit, t('Update'));
+
+      // Check that the nodes' languages are correctly set
+      for ($i = 3; $i <= 2+$this->nUsers; ++$i) {
+        $this->assertFieldByXPath(
+          "//tbody/tr[$i]/td[7]",
+          $name,
+          t("Check that user !i's language is !name.", array('!i' => "$i", '!name' => $name)),
+          'Language assignment'
+        );
+      }
+    }
+  }
+}

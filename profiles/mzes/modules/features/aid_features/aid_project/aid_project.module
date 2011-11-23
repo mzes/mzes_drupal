@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AID Project feature.
+ */
+
+include_once('aid_project.features.inc');

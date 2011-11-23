@@ -1,0 +1,130 @@
+<?php
+/**
+ * @file
+ * Contains core functions for the File Aliases module.
+ */
+
+/**
+ * Include additional files.
+ */
+foreach (module_list() as $module) {
+  if (file_exists($file = dirname(__FILE__) . "/modules/{$module}.inc")) {
+    require_once $file;
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function file_aliases_menu() {
+  $items['filefield_paths/alias/%'] = array(
+    'page callback' => 'file_aliases_load_fid',
+    'page arguments' => array(2),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_file_load().
+ */
+function file_aliases_file_load($files) {
+  foreach ($files as &$file) {
+    $filefield_paths_alias = "filefield_paths/alias/{$file->fid}";
+    if (($alias = drupal_get_path_alias($filefield_paths_alias)) != $filefield_paths_alias) {
+      $file->uri = file_create_url($alias);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_image_style().
+ */
+function file_aliases_preprocess_image_style(&$variables) {
+  global $base_url;
+  $source = drupal_lookup_path('source', str_replace($base_url . base_path(), '', $variables['path']));
+  $fid = drupal_substr($source, 22);
+  if ($uri = db_query("SELECT uri FROM {file_managed} WHERE fid = :fid", array(':fid' => $fid))->fetchField()) {
+    $variables['path'] = $uri;
+  }
+}
+
+/**
+ * Implements hook_preprocess_image().
+ */
+function file_aliases_preprocess_image(&$variables) {
+  if (isset($variables['style_name']) && preg_match("/.*?files\/styles\/{$variables['style_name']}\/(.*?)\/(.*)/", $variables['path'], $matches)) {
+    if ($fid = db_query("SELECT fid FROM {file_managed} WHERE uri = :uri", array(':uri' => "{$matches[1]}://{$matches[2]}"))->fetchField()) {
+      $filefield_paths_alias = "filefield_paths/alias/{$fid}";
+      if (($alias = drupal_get_path_alias($filefield_paths_alias)) != $filefield_paths_alias) {
+        $variables['path'] = file_create_url($alias) . "?{$variables['style_name']}";
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_file_url_alter().
+ *
+ * @TODO - Respect 'display alias' checkbox.
+ */
+function file_aliases_file_url_alter(&$uri) {
+  if ($fid = db_query("SELECT fid FROM {file_managed} WHERE uri = :uri", array(':uri' => $uri))->fetchField()) {
+    $filefield_paths_alias = "filefield_paths/alias/{$fid}";
+    if (($alias = drupal_get_path_alias($filefield_paths_alias)) != $filefield_paths_alias) {
+      $uri = file_create_url($alias);
+    }
+  }
+}
+
+/**
+ * Menu callback; File Alias callback.
+ */
+function file_aliases_load_fid($fid) {
+  if (request_uri() == base_path() . "filefield_paths/alias/{$fid}") {
+    drupal_not_found();
+    exit;
+  }
+
+  $results = db_select('file_managed', 'f')
+    ->fields('f', array('filemime', 'uri'))
+    ->condition('fid', $fid)
+    ->execute()
+    ->fetchAll();
+  $result = current($results);
+
+  // Render Image Style preset if applicable.
+  $uri = explode('?', request_uri());
+  if (isset($uri[1]) && strpos($result->filemime, 'image') === 0) {
+    $image_style = $uri[1];
+    $styles = image_styles();
+    if (isset($styles[$image_style])) {
+      $arguments = array_merge(array(image_style_load($image_style), file_uri_scheme($result->uri)), explode('/', str_replace(file_uri_scheme($result->uri) . '://', '', $result->uri)));
+      call_user_func_array('image_style_deliver', $arguments);
+    }
+  }
+
+  if (file_uri_scheme($result->uri) == 'private') {
+    $file = explode('://', $result->uri);
+    file_download($file[0], $file[1]);
+  }
+
+  else {
+    header("Content-Type: {$result->filemime}");
+    header('Cache-Control: public');
+    readfile($result->uri);
+  }
+}
+
+/**
+ * Implements hook_file_download().
+ */
+function file_aliases_file_download($uri) {
+  $fileinfo = pathinfo(drupal_get_path_alias($_GET['q']));
+  return array(
+    'Cache-Control' => 'public',
+    'Content-Disposition' => "filename='{$fileinfo['basename']}'"
+  );
+}

@@ -1,0 +1,36 @@
+Language assignment 7.x-1.2, 2011-05-28
+---------------------------------------
+#1086454 by Andrew Schulman: Fix changing the language of a node via language assignment deletes the content on the edit page.
+#1144306 by Andrew Schulman: Fix fatal errors requiring user.admin.inc admin/people/people.
+#1158094 by Andrew Schulman: Fix unsupported operand types in languageassign.module on line 67.
+
+Language assignment 7.x-1.1, 2011-12-08
+---------------------------------------
+Fix invalid function call in languageassign.test.
+
+Language assignment 7.x-1.0, 2010-12-07
+---------------------------------------
+Initial release for Drupal 7.
+
+Language assignment 7.x-1.0-beta2, 2010-11-28
+---------------------------------------------
+#983710 by Andrew Schulman: Fix overriding hook_form_user_admin_account_alter().
+Add simple test framework and tests.
+
+Language assignment 7.x-1.0-beta1, 2010-11-07
+---------------------------------------------
+Initial beta release for Drupal 7, with all of the features of the Drupal 6 branch.
+
+Language assignment 6.x-1.2, 2010-08-03
+---------------------------------------
+#861838 by Andrew Schulman: Add ability to set users' language.
+by Andrew Schulman: Add a Language column to the bulk user update form (admin/user/user).
+
+Language assignment 6.x-1.1, 2009-12-28
+---------------------------------------
+by Andrew Schulman: Change name from Language bulk assignment to Language assignment.
+#621920 by Andrew Schulman: add action for VBO integration.
+
+Language bulk assignment 6.x-1.0, 2009-10-27
+--------------------------------------------
+Initial release of languageassign, with support for Drupal 6.x.

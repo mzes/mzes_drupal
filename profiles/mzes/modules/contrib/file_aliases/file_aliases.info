@@ -1,0 +1,17 @@
+name = File Aliases
+description = Adds file aliases to FileFields and Uploads.
+dependencies[] = filefield_paths
+dependencies[] = path
+package = Fields
+core = 7.x
+files[] = file_aliases.install
+files[] = file_aliases.module
+files[] = modules/filefield_paths.inc
+
+
+; Information added by drupal.org packaging script on 2011-11-15
+version = "7.x-1.0-beta1"
+core = "7.x"
+project = "file_aliases"
+datestamp = "1321352132"
+

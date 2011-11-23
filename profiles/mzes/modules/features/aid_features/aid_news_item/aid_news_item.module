@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the AID News Item feature.
+ */
+
+include_once('aid_news_item.features.inc');
