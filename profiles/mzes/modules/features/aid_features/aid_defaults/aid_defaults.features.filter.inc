@@ -16,13 +16,13 @@ function aid_defaults_filter_default_formats() {
     'name' => 'Filtered HTML',
     'cache' => '1',
     'status' => '1',
-    'weight' => '0',
+    'weight' => '-9',
     'filters' => array(
       'filter_url' => array(
         'weight' => '0',
         'status' => '1',
         'settings' => array(
-          'filter_url_length' => 72,
+          'filter_url_length' => '72',
         ),
       ),
       'filter_html' => array(
@@ -53,7 +53,7 @@ function aid_defaults_filter_default_formats() {
     'name' => 'Full HTML',
     'cache' => '1',
     'status' => '1',
-    'weight' => '1',
+    'weight' => '-8',
     'filters' => array(
       'filter_url' => array(
         'weight' => '0',
@@ -81,7 +81,7 @@ function aid_defaults_filter_default_formats() {
     'name' => 'Plain text',
     'cache' => '1',
     'status' => '1',
-    'weight' => '10',
+    'weight' => '-10',
     'filters' => array(
       'filter_html_escape' => array(
         'weight' => '0',

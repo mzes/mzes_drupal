@@ -1536,8 +1536,9 @@ function aid_defaults_user_default_permissions() {
     'name' => 'use text format filtered_html',
     'roles' => array(
       0 => 'administrator',
-      1 => 'anonymous user',
-      2 => 'authenticated user',
+      1 => 'editor',
+      2 => 'staff',
+      3 => 'web editor',
     ),
     'module' => 'filter',
   );
