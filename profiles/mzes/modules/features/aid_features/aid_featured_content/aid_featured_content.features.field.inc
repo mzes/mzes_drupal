@@ -86,7 +86,7 @@ function aid_featured_content_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '3',
+        'weight' => '4',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -172,7 +172,7 @@ function aid_featured_content_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '1',
+        'weight' => '2',
       ),
     ),
   );
@@ -258,7 +258,7 @@ function aid_featured_content_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );

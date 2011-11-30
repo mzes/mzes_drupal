@@ -86,7 +86,7 @@ function aid_event_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '4',
+        'weight' => '5',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -166,7 +166,7 @@ function aid_event_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '11',
+        'weight' => '8',
       ),
     ),
   );
@@ -247,7 +247,7 @@ function aid_event_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '16',
+        'weight' => '12',
       ),
     ),
   );
@@ -324,7 +324,7 @@ function aid_event_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '17',
+        'weight' => '13',
       ),
     ),
   );
@@ -399,7 +399,7 @@ function aid_event_field_default_fields() {
           'display_label' => 1,
         ),
         'type' => 'options_onoff',
-        'weight' => '15',
+        'weight' => '11',
       ),
     ),
   );
@@ -474,7 +474,7 @@ function aid_event_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -550,7 +550,7 @@ function aid_event_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '10',
+        'weight' => '7',
       ),
     ),
   );
@@ -639,7 +639,7 @@ function aid_event_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '9',
+        'weight' => '6',
       ),
     ),
   );
@@ -716,7 +716,7 @@ function aid_event_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '18',
+        'weight' => '14',
       ),
     ),
   );
@@ -796,7 +796,7 @@ function aid_event_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '20',
+        'weight' => '16',
       ),
     ),
   );
@@ -888,7 +888,7 @@ function aid_event_field_default_fields() {
           'year_range' => '-1:+3',
         ),
         'type' => 'date_select',
-        'weight' => '1',
+        'weight' => '2',
       ),
     ),
   );
@@ -968,7 +968,7 @@ function aid_event_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '19',
+        'weight' => '15',
       ),
     ),
   );
@@ -1048,7 +1048,7 @@ function aid_event_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -1135,7 +1135,7 @@ function aid_event_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '13',
+        'weight' => '10',
       ),
     ),
   );
@@ -1222,7 +1222,7 @@ function aid_event_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '12',
+        'weight' => '9',
       ),
     ),
   );

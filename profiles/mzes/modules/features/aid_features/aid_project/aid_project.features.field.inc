@@ -89,7 +89,7 @@ function aid_project_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '5',
+        'weight' => '7',
       ),
     ),
   );
@@ -168,7 +168,7 @@ function aid_project_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '6',
+        'weight' => '8',
       ),
     ),
   );
@@ -253,7 +253,7 @@ function aid_project_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '20',
+        'weight' => '13',
       ),
     ),
   );
@@ -335,7 +335,7 @@ function aid_project_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '16',
+        'weight' => '9',
       ),
     ),
   );
@@ -428,7 +428,7 @@ function aid_project_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '3',
+        'weight' => '18',
       ),
     ),
   );
@@ -517,7 +517,7 @@ function aid_project_field_default_fields() {
           'year_range' => '-25:+25',
         ),
         'type' => 'date_select',
-        'weight' => '3',
+        'weight' => '5',
       ),
     ),
   );
@@ -603,7 +603,7 @@ function aid_project_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'options_select',
-        'weight' => '15',
+        'weight' => '8',
       ),
     ),
   );
@@ -685,7 +685,7 @@ function aid_project_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '19',
+        'weight' => '12',
       ),
     ),
   );
@@ -766,7 +766,7 @@ function aid_project_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '12',
+        'weight' => '40',
       ),
     ),
   );
@@ -846,7 +846,7 @@ function aid_project_field_default_fields() {
           'size' => '30',
         ),
         'type' => 'text_textfield',
-        'weight' => '13',
+        'weight' => '31',
       ),
     ),
   );
@@ -939,7 +939,7 @@ function aid_project_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '10',
+        'weight' => '38',
       ),
     ),
   );
@@ -1032,7 +1032,7 @@ function aid_project_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '11',
+        'weight' => '39',
       ),
     ),
   );
@@ -1118,7 +1118,7 @@ function aid_project_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'options_select',
-        'weight' => '18',
+        'weight' => '11',
       ),
     ),
   );
@@ -1200,7 +1200,7 @@ function aid_project_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '17',
+        'weight' => '10',
       ),
     ),
   );
@@ -1293,7 +1293,7 @@ function aid_project_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '5',
+        'weight' => '20',
       ),
     ),
   );
@@ -1373,7 +1373,7 @@ function aid_project_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '4',
+        'weight' => '6',
       ),
     ),
   );
@@ -1458,7 +1458,7 @@ function aid_project_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '22',
+        'weight' => '15',
       ),
     ),
   );
@@ -1540,7 +1540,7 @@ function aid_project_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '4',
       ),
     ),
   );
@@ -1620,7 +1620,7 @@ function aid_project_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '3',
       ),
     ),
   );
@@ -1705,7 +1705,7 @@ function aid_project_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '21',
+        'weight' => '14',
       ),
     ),
   );
@@ -1781,7 +1781,7 @@ function aid_project_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '14',
+        'weight' => '30',
       ),
     ),
   );
@@ -1873,7 +1873,7 @@ function aid_project_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '8',
+        'weight' => '18',
       ),
     ),
   );
@@ -1965,7 +1965,7 @@ function aid_project_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '7',
+        'weight' => '17',
       ),
     ),
   );

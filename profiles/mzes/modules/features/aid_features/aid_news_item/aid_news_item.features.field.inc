@@ -86,7 +86,7 @@ function aid_news_item_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '1',
+        'weight' => '2',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -166,7 +166,7 @@ function aid_news_item_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '11',
+        'weight' => '10',
       ),
     ),
   );
@@ -243,7 +243,7 @@ function aid_news_item_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -320,7 +320,7 @@ function aid_news_item_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -396,7 +396,7 @@ function aid_news_item_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '10',
+        'weight' => '9',
       ),
     ),
   );
@@ -488,7 +488,7 @@ function aid_news_item_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '9',
+        'weight' => '8',
       ),
     ),
   );
@@ -565,7 +565,7 @@ function aid_news_item_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -645,7 +645,7 @@ function aid_news_item_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -725,7 +725,7 @@ function aid_news_item_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );

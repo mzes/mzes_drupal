@@ -86,7 +86,7 @@ function aid_press_release_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '1',
+        'weight' => '2',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -166,7 +166,7 @@ function aid_press_release_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '15',
+        'weight' => '10',
       ),
     ),
   );
@@ -243,7 +243,7 @@ function aid_press_release_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '8',
+        'weight' => '5',
       ),
     ),
   );
@@ -320,7 +320,7 @@ function aid_press_release_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '6',
+        'weight' => '3',
       ),
     ),
   );
@@ -396,7 +396,7 @@ function aid_press_release_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => '14',
+        'weight' => '9',
       ),
     ),
   );
@@ -486,7 +486,7 @@ function aid_press_release_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '13',
+        'weight' => '8',
       ),
     ),
   );
@@ -563,7 +563,7 @@ function aid_press_release_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '7',
+        'weight' => '4',
       ),
     ),
   );
@@ -643,7 +643,7 @@ function aid_press_release_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '10',
+        'weight' => '7',
       ),
     ),
   );
@@ -723,7 +723,7 @@ function aid_press_release_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '9',
+        'weight' => '6',
       ),
     ),
   );

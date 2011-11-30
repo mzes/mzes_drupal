@@ -1,6 +1,7 @@
 <?php
 /**
  * @file
+ * Code for the AID Publication feature.
  */
 
-// Drupal needs this blank file.
+include_once('aid_publication.features.inc');

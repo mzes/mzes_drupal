@@ -80,7 +80,7 @@ function mzes_publication_field_default_fields() {
           'size' => '30',
         ),
         'type' => 'text_textfield',
-        'weight' => '17',
+        'weight' => '60',
       ),
     ),
   );
@@ -155,7 +155,7 @@ function mzes_publication_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '22',
+        'weight' => '79',
       ),
     ),
   );
@@ -234,7 +234,7 @@ function mzes_publication_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '21',
+        'weight' => '78',
       ),
     ),
   );
@@ -306,7 +306,7 @@ function mzes_publication_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '24',
+        'weight' => '81',
       ),
     ),
   );
@@ -378,7 +378,7 @@ function mzes_publication_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '20',
+        'weight' => '77',
       ),
     ),
   );
@@ -452,7 +452,7 @@ function mzes_publication_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '18',
+        'weight' => '61',
       ),
     ),
   );
@@ -527,7 +527,7 @@ function mzes_publication_field_default_fields() {
           'size' => '10',
         ),
         'type' => 'text_textfield',
-        'weight' => '23',
+        'weight' => '80',
       ),
     ),
   );
@@ -602,7 +602,7 @@ function mzes_publication_field_default_fields() {
           'display_label' => 1,
         ),
         'type' => 'options_onoff',
-        'weight' => '20',
+        'weight' => '63',
       ),
     ),
   );
@@ -677,7 +677,7 @@ function mzes_publication_field_default_fields() {
           'display_label' => 1,
         ),
         'type' => 'options_onoff',
-        'weight' => '19',
+        'weight' => '62',
       ),
     ),
   );

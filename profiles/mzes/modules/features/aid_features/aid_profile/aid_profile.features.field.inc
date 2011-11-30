@@ -103,7 +103,7 @@ function aid_profile_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '9',
+        'weight' => '11',
       ),
     ),
   );
@@ -197,7 +197,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '10',
+        'weight' => '24',
       ),
     ),
   );
@@ -291,7 +291,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '12',
+        'weight' => '26',
       ),
     ),
   );
@@ -384,7 +384,7 @@ function aid_profile_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '12',
+        'weight' => '14',
       ),
     ),
   );
@@ -480,7 +480,7 @@ function aid_profile_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '7',
+        'weight' => '21',
       ),
     ),
   );
@@ -574,7 +574,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '17',
+        'weight' => '20',
       ),
     ),
   );
@@ -670,7 +670,7 @@ function aid_profile_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '8',
+        'weight' => '22',
       ),
     ),
   );
@@ -769,7 +769,7 @@ function aid_profile_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '9',
+        'weight' => '23',
       ),
     ),
   );
@@ -865,7 +865,7 @@ function aid_profile_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '15',
+        'weight' => '37',
       ),
     ),
   );
@@ -948,7 +948,7 @@ function aid_profile_field_default_fields() {
           'size' => '30',
         ),
         'type' => 'email_textfield',
-        'weight' => '14',
+        'weight' => '17',
       ),
     ),
   );
@@ -1044,7 +1044,7 @@ function aid_profile_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '18',
+        'weight' => '40',
       ),
     ),
   );
@@ -1139,7 +1139,7 @@ function aid_profile_field_default_fields() {
           'size' => '30',
         ),
         'type' => 'text_textfield',
-        'weight' => '13',
+        'weight' => '16',
       ),
     ),
   );
@@ -1233,7 +1233,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '3',
       ),
     ),
   );
@@ -1348,7 +1348,7 @@ function aid_profile_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '10',
+        'weight' => '12',
       ),
     ),
   );
@@ -1442,7 +1442,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '3',
+        'weight' => '5',
       ),
     ),
   );
@@ -1538,7 +1538,7 @@ function aid_profile_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '19',
+        'weight' => '41',
       ),
     ),
   );
@@ -1632,7 +1632,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '11',
+        'weight' => '25',
       ),
     ),
   );
@@ -1726,7 +1726,7 @@ function aid_profile_field_default_fields() {
           'size' => '30',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '4',
       ),
     ),
   );
@@ -1820,7 +1820,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '6',
+        'weight' => '8',
       ),
     ),
   );
@@ -1915,7 +1915,7 @@ function aid_profile_field_default_fields() {
           'size' => '30',
         ),
         'type' => 'text_textfield',
-        'weight' => '12',
+        'weight' => '15',
       ),
     ),
   );
@@ -2028,7 +2028,7 @@ function aid_profile_field_default_fields() {
           'name_format' => 'name_line_organisation',
         ),
         'type' => 'addressfield_standard',
-        'weight' => '16',
+        'weight' => '19',
       ),
     ),
   );
@@ -2122,7 +2122,7 @@ function aid_profile_field_default_fields() {
           'size' => '20',
         ),
         'type' => 'text_textfield',
-        'weight' => '4',
+        'weight' => '6',
       ),
     ),
   );
@@ -2234,7 +2234,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '48',
+        'weight' => '63',
       ),
     ),
   );
@@ -2330,7 +2330,7 @@ function aid_profile_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '26',
+        'weight' => '27',
       ),
     ),
   );
@@ -2407,7 +2407,7 @@ function aid_profile_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '17',
+        'weight' => '39',
       ),
     ),
   );
@@ -2502,7 +2502,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '27',
+        'weight' => '28',
       ),
     ),
   );
@@ -2579,7 +2579,7 @@ function aid_profile_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '16',
+        'weight' => '38',
       ),
     ),
   );
@@ -2685,7 +2685,7 @@ function aid_profile_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '15',
+        'weight' => '44',
       ),
     ),
   );
@@ -2779,7 +2779,7 @@ function aid_profile_field_default_fields() {
           'display_label' => 1,
         ),
         'type' => 'options_onoff',
-        'weight' => '16',
+        'weight' => '29',
       ),
     ),
   );
@@ -2873,7 +2873,7 @@ function aid_profile_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '23',
+        'weight' => '32',
       ),
     ),
   );
@@ -2967,7 +2967,7 @@ function aid_profile_field_default_fields() {
           'size' => '20',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '7',
       ),
     ),
   );
@@ -3066,7 +3066,7 @@ function aid_profile_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '20',
+        'weight' => '42',
       ),
     ),
   );
@@ -3162,7 +3162,7 @@ function aid_profile_field_default_fields() {
           'size' => '30',
         ),
         'type' => 'text_textfield',
-        'weight' => '22',
+        'weight' => '31',
       ),
     ),
   );
@@ -3256,7 +3256,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '7',
+        'weight' => '9',
       ),
     ),
   );
@@ -3331,7 +3331,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '8',
+        'weight' => '10',
       ),
     ),
   );
@@ -3437,7 +3437,7 @@ function aid_profile_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '16',
+        'weight' => '45',
       ),
     ),
   );
@@ -3547,7 +3547,7 @@ function aid_profile_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'user_reference_autocomplete',
-        'weight' => '11',
+        'weight' => '13',
       ),
     ),
   );
@@ -3660,7 +3660,7 @@ function aid_profile_field_default_fields() {
           'name_format' => 'name_line_organisation',
         ),
         'type' => 'addressfield_standard',
-        'weight' => '15',
+        'weight' => '18',
       ),
     ),
   );
@@ -3766,7 +3766,7 @@ function aid_profile_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '14',
+        'weight' => '43',
       ),
     ),
   );
