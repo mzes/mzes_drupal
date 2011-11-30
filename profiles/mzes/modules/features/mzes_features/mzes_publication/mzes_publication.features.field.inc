@@ -155,7 +155,7 @@ function mzes_publication_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '79',
+        'weight' => '87',
       ),
     ),
   );
@@ -234,7 +234,7 @@ function mzes_publication_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '78',
+        'weight' => '86',
       ),
     ),
   );
@@ -306,7 +306,7 @@ function mzes_publication_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '81',
+        'weight' => '89',
       ),
     ),
   );
@@ -378,7 +378,7 @@ function mzes_publication_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '77',
+        'weight' => '85',
       ),
     ),
   );
@@ -527,7 +527,7 @@ function mzes_publication_field_default_fields() {
           'size' => '10',
         ),
         'type' => 'text_textfield',
-        'weight' => '80',
+        'weight' => '88',
       ),
     ),
   );

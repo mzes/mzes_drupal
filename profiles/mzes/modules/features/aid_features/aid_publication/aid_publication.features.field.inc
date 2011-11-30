@@ -83,7 +83,7 @@ function aid_publication_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '21',
+        'weight' => '57',
       ),
     ),
   );
