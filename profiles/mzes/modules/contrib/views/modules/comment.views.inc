@@ -350,7 +350,7 @@ function comment_views_data() {
 
   $data['comment']['uid'] = array(
     'title' => t('Author uid'),
-    'help' => t('If you need more fields then the uid add the comment: author relationship'),
+    'help' => t('If you need more fields than the uid add the comment: author relationship'),
     'relationship' => array(
       'title' => t('Author'),
       'help' => t("The User ID of the comment's author."),
@@ -484,6 +484,28 @@ function comment_views_data() {
     ),
   );
 
+  // last_comment_uid
+  $data['node_comment_statistics']['last_comment_uid'] = array(
+    'title' => t('Last comment uid'),
+    'help' => t('The User ID of the author of the last comment of a node.'),
+    'relationship' => array(
+      'title' => t('Last comment author'),
+      'base' => 'users',
+      'base field' => 'uid',
+      'handler' => 'views_handler_relationship',
+      'label' => t('Last comment author'),
+    ),
+    'filter' => array(
+      'handler' => 'views_handler_filter_numeric',
+    ),
+    'argument' => array(
+      'handler' => 'views_handler_argument_numeric',
+    ),
+    'field' => array(
+      'handler' => 'views_handler_filter_user_name',
+    ),
+  );
+
   return $data;
 }
 
@@ -603,7 +625,7 @@ function template_preprocess_views_view_row_comment(&$vars) {
   // Put the view on the node so we can retrieve it in the preprocess.
   $node->view = &$view;
 
-  $build = comment_view_multiple(array($comment->cid => $comment), $node);
+  $build = comment_view_multiple(array($comment->cid => $comment), $node, $plugin->options['view_mode']);
   // If we're displaying the comments without links, remove them from the
   // renderable array. There is no way to avoid building them in the first
   // place (see comment_build_content()).

@@ -168,6 +168,8 @@ class date_views_filter_handler extends date_views_filter_handler_simple {
       if (array_key_exists($name, $fields) && $field = $fields[$name]) {
         $date_handler = new date_sql_handler($field['sql_type'], date_default_timezone());
         $date_handler->granularity = $this->options['granularity'];
+        $date_handler->db_timezone = date_get_timezone_db($field['tz_handling']);
+        $date_handler->local_timezone = date_get_timezone($field['tz_handling']);
         $this->query_fields[] = array('field' => $field, 'date_handler' => $date_handler);
       }
     }

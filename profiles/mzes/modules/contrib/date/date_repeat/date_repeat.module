@@ -157,6 +157,14 @@ function date_repeat_rrule_description($rrule, $format = 'D M d Y') {
   module_load_include('inc', 'date_api', 'date_api_ical');
   module_load_include('inc', 'date_repeat', 'date_repeat_calc');
 
+  $parts = date_repeat_split_rrule($rrule);
+  $additions = $parts[2];
+  $exceptions = $parts[1];
+  $rrule = $parts[0];
+  if ($rrule['FREQ'] == 'NONE') {
+    return;
+  }
+
   // Make sure there will be an empty description for any unused parts.
   $description = array(
     '!interval' => '',
@@ -168,10 +176,6 @@ function date_repeat_rrule_description($rrule, $format = 'D M d Y') {
     '!additional' => '',
     '!week_starts_on' => '',
     );
-  $parts = date_repeat_split_rrule($rrule);
-  $additions = $parts[2];
-  $exceptions = $parts[1];
-  $rrule = $parts[0];
   $interval = INTERVAL_options();
   switch ($rrule['FREQ']) {
     case 'WEEKLY':

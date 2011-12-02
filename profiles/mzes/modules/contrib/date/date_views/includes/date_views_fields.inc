@@ -159,6 +159,6 @@ function _date_views_fields($base = 'node') {
       $fields['alias'][$alias] = $fields['name'][$name];
     }
   }
-  //cache_set($cid, $fields, 'cache_views');
+  cache_set($cid, $fields, 'cache_views');
   return $fields;
 }

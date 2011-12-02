@@ -341,6 +341,13 @@ function date_text_validate($element, &$form_state) {
   $input_exists = NULL;
   $input = drupal_array_get_nested_value($form_state['values'], $element['#parents'], $input_exists);
 
+  // Let Date module massage the format for all day values so they will pass validation.
+  // The All day flag, if used, actually exists on the parent element.
+  // @TODO Make this into a generic hook instead of a specific Date module function.
+  if (function_exists('date_all_day_value')) {
+    date_all_day_value($element, $form_state);
+  }
+
   $label = !empty($element['#date_title']) ? $element['#date_title'] : (!empty($element['#title']) ? $element['#title'] : '');
   $date = date_text_input_date($element, $input);
 
@@ -657,6 +664,13 @@ function date_select_validate($element, &$form_state) {
     if (substr($field_value, 0, 1) == '-') {
       $input[$field] = '';
     }
+  }
+
+  // Let Date module massage the format for all day values so they will pass validation.
+  // The All day flag, if used, actually exists on the parent element.
+  // @TODO Make this into a generic hook instead of a specific Date module function.
+  if (function_exists('date_all_day_value')) {
+    date_all_day_value($element, $form_state);
   }
 
   $label = !empty($element['#date_title']) ? $element['#date_title'] : (!empty($element['#title']) ? $element['#title'] : '');

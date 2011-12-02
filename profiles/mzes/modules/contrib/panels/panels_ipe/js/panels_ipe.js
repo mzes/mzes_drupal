@@ -2,6 +2,13 @@
 // Ensure the $ alias is owned by jQuery.
 (function($) {
 
+// randomly lock a pane.
+// @debug only
+Drupal.settings.Panels = Drupal.settings.Panels || {};
+Drupal.settings.Panels.RegionLock = {
+  10: { 'top': false, 'left': true, 'middle': true }
+}
+
 Drupal.PanelsIPE = {
   editors: {},
   bindClickDelete: function(context) {
@@ -53,19 +60,61 @@ function DrupalPanelsIPE(cache_key, cfg) {
   this.cfg = cfg;
   this.changed = false;
   this.sortableOptions = $.extend({
-    revert: 200,
-    dropOnEmpty: true, // default
     opacity: 0.75, // opacity of sortable while sorting
-    // placeholder: 'draggable-placeholder',
-    // forcePlaceholderSize: true,
     items: 'div.panels-ipe-portlet-wrapper',
     handle: 'div.panels-ipe-draghandle',
-    tolerance: 'pointer',
-    cursorAt: 'top',
-    update: this.setChanged,
-    scroll: true
-    // containment: ipe.topParent,
+    cancel: '.panels-ipe-nodrag'
   }, cfg.sortableOptions || {});
+
+  this.regions = [];
+  this.sortables = {};
+
+  this.activateSortable = function(event, ui) {
+    if (!Drupal.settings.Panels || !Drupal.settings.Panels.RegionLock) {
+      // don't bother if there are no region locks in play.
+      return;
+    }
+
+    var region = event.data.region;
+    var $pane = $(event.srcElement).parents('.panels-ipe-portlet-wrapper');
+    var paneId = $pane.attr('id').replace('panels-ipe-paneid-', '');
+
+    var disabledRegions = false;
+
+    // Determined if this pane is locked out of this region.
+    if (!Drupal.settings.Panels.RegionLock[paneId] || Drupal.settings.Panels.RegionLock[paneId][region]) {
+      ipe.sortables[region].sortable('enable');
+      ipe.sortables[region].sortable('refresh');
+    }
+    else {
+      disabledRegions = true;
+      ipe.sortables[region].sortable('disable');
+      ipe.sortables[region].sortable('refresh');
+    }
+
+    // If we disabled regions, we need to
+    if (disabledRegions) {
+      $(event.srcElement).bind('dragstop', function(event, ui) {
+        // Go through
+      });
+    }
+  };
+
+  // When dragging is stopped, we need to ensure all sortable regions are enabled.
+  this.enableRegions = function(event, ui) {
+    for (var i in ipe.regions) {
+      ipe.sortables[ipe.regions[i]].sortable('enable');
+      ipe.sortables[ipe.regions[i]].sortable('refresh');
+    }
+  }
+
+  this.initSorting = function() {
+    var $region = $(this).parent('.panels-ipe-region');
+    var region = $region.attr('id').replace('panels-ipe-regionid-', '');
+    ipe.sortables[region] = $(this).sortable(ipe.sortableOptions);
+    ipe.regions.push(region);
+    $(this).bind('sortactivate', {region: region}, ipe.activateSortable);
+  };
 
   this.initEditing = function(formdata) {
     ipe.topParent = $('div#panels-ipe-display-' + cache_key);
@@ -75,7 +124,7 @@ function DrupalPanelsIPE(cache_key, cfg) {
     // parameters used here.
     ipe.changed = false;
 
-    $('div.panels-ipe-sort-container', ipe.topParent).sortable(ipe.sortable_options);
+    $('div.panels-ipe-sort-container', ipe.topParent).each(ipe.initSorting);
 
     // Since the connectWith option only does a one-way hookup, iterate over
     // all sortable regions to connect them with one another.
@@ -85,6 +134,8 @@ function DrupalPanelsIPE(cache_key, cfg) {
     $('div.panels-ipe-sort-container', ipe.topParent).bind('sortupdate', function() {
       ipe.changed = true;
     });
+
+    $('div.panels-ipe-sort-container', ipe.topParent).bind('sortstop', this.enableRegions);
 
     $('.panels-ipe-form-container', ipe.control).append(formdata);
 
@@ -124,7 +175,7 @@ function DrupalPanelsIPE(cache_key, cfg) {
     $('.panels-ipe-on').show('normal');
     ipe.showForm();
     ipe.topParent.addClass('panels-ipe-editing');
-  }
+  };
 
   this.hideContainer = function() {
     ipe.container.slideUp('fast');
@@ -212,6 +263,9 @@ function DrupalPanelsIPE(cache_key, cfg) {
       $('div.panels-ipe-portlet-static', this).each(function() {
         $(this).appendTo($(this).parent().parent());
       });
+
+      // Also remove the last panel separator.
+      $('div.panel-separator', this).filter(':last').remove();
 
       // Add a marker so we can drag things to empty containers.
       $('div.panels-ipe-sort-container', this).append('<div>&nbsp;</div>');

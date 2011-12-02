@@ -9,7 +9,9 @@ class i18nviews_handler_filter_taxonomy_term_name extends views_handler_filter_s
   function op_equal($field) {
     // Change the input of the word to the english source term.
     $source = i18nviews_locale_source($this->value, 'taxonomy');
-    $this->value = $source->source;
+    if (isset($source->source)) {
+      $this->value = $source->source;
+    }
     parent::op_equal($field);
   }
 

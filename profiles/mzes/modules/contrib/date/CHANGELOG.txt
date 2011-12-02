@@ -5,6 +5,14 @@ Date Module 7.x
 Version 7.x-2.x-dev
 ===================
 
+- Remove date_get_nested_elements() function. Not being used and I don't want other code to start expecting it.
+- Issue #1266144, The end date should get set to blank if it is optional and matches the start date, but only if it is not populated by default values.
+- Issue #1349510, Make sure default values get populated before processing so they still get set on hidden fields.
+
+======================
+Version 7.x-2.0-alpha5
+======================
+
 Notes:
 The date repeat widgets have been removed to keep users from trying to change repeating dates into non-repeating dates.
 There are now just three widgets, Date Select, Date Text, and Date Popup. Whether or not a date is a repeating date
@@ -12,6 +20,8 @@ is now controlled by a field setting.
 
 New Features/UX Changes/API Changes
 
+- Issue #1304056 by DamienMcKenna, Add option to date_difference to indicate direction of difference.
+- Issue #1238660, Add custom format option for the date format used in summary arguments.
 - Issue #1038482 by somanyfish, iCal import failing due to colon instead of semi-colon
 - Issue #1252952 by eosrei: Make "all day" checkbox configurable on a per field instance basis.
 - Issue #1266144 by arlinsandbulte: Clarify Default End Date Setting
@@ -21,6 +31,25 @@ New Features/UX Changes/API Changes
 
 Bugfixes
 
+- Issue #1280658 and follow up to Issue #1238660 by KarenS and tockliasteroid, Rework the format control over the summary title and apply it to the title() callback.
+- Issue #1276622 by ArtistConk, Make sure Except date contains no default value.
+- Issue #1153766 by fago, More work on the entity property setters and getters.
+- Issue #1331214, Make sure Date Migrate properly handles empty date values.
+- Issue #1285224, Make sure Date Migrate works for importing repeating dates now that widgets have changed.
+- Issue #1162290, Make sure date for example formats avoids confusing short and long month names.
+- Re-organize handling of custom date formats.
+- Issue #1122038, Make sure empty values are not passed to Views to be themed for repeating dates.
+- Issue #1101284 by pfournier, Expand regex for Month names to catch more possible variations.
+- Issue #1343406 by slashrsm, add back the caching of the views fields list.
+- Issue #1302374 by miro_dietiker, Account for an inconsistency in core handling of non-existant date formats.
+- Issue #1344014 by James Sharpe, Get rid of 'Repeats every 0 days' description.
+- Issue #1302212, Change the way default dates using custom code are created.
+- Issue #1292898, Check for all day checkbox in the basic date element validation so empty time for newly added elements still passes validation.
+- Issue #1252952 follow up, Move checkbox setting to the same spot where time is set, and don't show option on dates without time.
+- Issue #1335818 by joelpitter, Don't create a date for empty values in the date getters and setters.
+- Issue #1271726, Keep default_value out of exposed form so it won't show up in pager.
+- Issue #1017866, Fix miscellaneous problems where filter/argument incorrectly do timezone adjustment.
+- Issue #1103032, Attempt to add setters to date entity metadata so Rules can use them.
 - Issue #1153766, Adapt metadata functions to the pattern in the current Entity code, add $info to the getters.
 - Issue #1278876 by basicmagic.net, Typo in date.css
 - Issue #752550 by Fonant, Week number gets printed twice

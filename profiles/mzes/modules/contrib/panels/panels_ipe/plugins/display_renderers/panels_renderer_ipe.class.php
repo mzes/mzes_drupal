@@ -67,6 +67,28 @@ class panels_renderer_ipe extends panels_renderer_editor {
       return;
     }
 
+    // If there are region locks, add them.
+    if (!empty($pane->locks['type']) && $pane->locks['type'] == 'regions') {
+      static $key = NULL;
+      $javascript = &drupal_static('drupal_add_js', array());
+
+      // drupal_add_js breaks as we add these, but we can't just lump them
+      // together because panes can be rendered independently. So game the system:
+      if (empty($key)) {
+        $settings['Panels']['RegionLock'][$pane->pid] = $pane->locks['regions'];
+        drupal_add_js($settings, 'setting');
+
+        // These are just added via [] so we have to grab the last one
+        // and reference it.
+        $keys = array_keys($javascript['settings']['data']);
+        $key = end($keys);
+      }
+      else {
+        $javascript['settings']['data'][$key]['Panels']['RegionLock'][$pane->pid] = $pane->locks['regions'];
+      }
+
+    }
+
     if (empty($pane->IPE_empty)) {
       // Add an inner layer wrapper to the pane content before placing it into
       // draggable portlet
@@ -77,6 +99,11 @@ class panels_renderer_ipe extends panels_renderer_editor {
     }
     // Hand it off to the plugin/theme for placing draggers/buttons
     $output = theme('panels_ipe_pane_wrapper', array('output' => $output, 'pane' => $pane, 'display' => $this->display, 'renderer' => $this));
+
+    if (!empty($pane->locks['type']) && $pane->locks['type'] == 'immovable') {
+      return "<div id=\"panels-ipe-paneid-{$pane->pid}\" class=\"panels-ipe-nodrag panels-ipe-portlet-wrapper panels-ipe-portlet-marker\">" . $output . "</div>";
+    }
+
     return "<div id=\"panels-ipe-paneid-{$pane->pid}\" class=\"panels-ipe-portlet-wrapper panels-ipe-portlet-marker\">" . $output . "</div>";
   }
 
@@ -89,6 +116,9 @@ class panels_renderer_ipe extends panels_renderer_editor {
       $title = ctools_content_admin_title($content_type, $pane->subtype, $pane->configuration, $this->display->context);
 
       $content->content = t('Placeholder for empty "@title"', array('@title' => $title));
+      // Add these to prevent notices.
+      $content->type = 'panels_ipe';
+      $content->subtype = 'panels_ipe';
       $pane->IPE_empty = TRUE;
     }
 

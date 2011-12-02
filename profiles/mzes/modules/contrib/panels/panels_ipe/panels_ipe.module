@@ -113,7 +113,14 @@ function theme_panels_ipe_pane_wrapper($vars) {
   );
 
   $links = theme('links', array('links' => $links, 'attributes' => $attributes));
-  $links .= '<div class="panels-ipe-draghandle">&nbsp;</div>';
+  if (!empty($pane->locks['type']) && $pane->locks['type'] == 'immovable') {
+    $links .= '<div class="panels-ipe-dragbar panels-ipe-nodraghandle">&nbsp;</div>';
+  }
+  else {
+    $links .= '<div class="panels-ipe-dragbar panels-ipe-draghandle">&nbsp;</div>';
+  }
+
+
   $handlebar = '<div class="panels-ipe-handlebar-wrapper panels-ipe-on clearfix">' . $links . '</div>';
   return $handlebar . $output;
 }

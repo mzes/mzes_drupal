@@ -28,7 +28,7 @@ function i18nviews_views_data_alter_i18n_taxonomy(&$data) {
     'filter' => array(
       'title' => t('Term (translated)'),
       'help' => t('Taxonomy term chosen from autocomplete or select widget.'),
-      'handler' => 'i18nviews_handler_filter_term_node_tid',
+      'handler' => 'i18nviews_handler_filter_taxonomy_index_tid',
       'hierarchy table' => 'taxonomy_term_hierarchy',
       'numeric' => TRUE,
     ),
@@ -145,7 +145,6 @@ function i18nviews_views_data_alter_i18n_taxonomy(&$data) {
     ),
     'filter' => array(
       'title' => t('Has taxonomy term (translated)'),
-      //'handler' => 'views_handler_filter_term_node_tid',
       'handler' => 'i18nviews_handler_filter_taxonomy_index_tid',
       'hierarchy table' => 'taxonomy_term_hierarchy',
       'numeric' => TRUE,
@@ -170,7 +169,17 @@ function i18nviews_views_data_alter_i18n_taxonomy(&$data) {
  * Implementation of hook_field_views_data_alter().
  */
 function i18nviews_field_views_data_alter(&$data, &$field, $module) {
-  if ($module == 'taxonomy' && module_exists('i18n_taxonomy')) {
+  if ($module == 'i18n_taxonomy' && module_exists('i18n_taxonomy')) {
+    foreach ($data as $table_name => $table_data) {
+      foreach ($table_data as $field_name => $field_data) {
+        if (isset($field_data['filter'])) {
+          $data[$table_name][$field_name . '_i18n'] = $data[$table_name][$field_name];
+          $data[$table_name][$field_name . '_i18n']['real field'] = $field_name;
+          $data[$table_name][$field_name . '_i18n']['title'] .= ' (translated)';
+          $data[$table_name][$field_name . '_i18n']['filter']['handler'] = 'i18nviews_handler_filter_taxonomy_index_tid';
+        }
+      }
+    }
   }
   elseif ($module == 'list' && module_exists('i18n_field')) {
     foreach ($data as $table_name => $table_data) {

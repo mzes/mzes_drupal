@@ -121,7 +121,7 @@ function views_ui_preview($view, $display_id, $args = array()) {
     $show_stats = variable_get('views_ui_show_sql_query_where', 'above');
   }
 
-  $combined = ($show_query === $show_stats);
+  $combined = $show_query && $show_stats;
 
   $rows = array('query' => array(), 'statistics' => array());
   $output = '';
@@ -2098,6 +2098,25 @@ function views_ui_edit_view_form_submit($form, &$form_state) {
       // Redirect the user to the renamed display to be sure that the page itself exists and doesn't throw errors.
       $form_state['redirect'] = 'admin/structure/views/view/' . $form_state['view']->name . '/edit/' . $display->new_id;
     }
+  }
+
+  // Direct the user to the right url, if the path of the display has changed.
+  if (!empty($_GET['destination'])) {
+    $destination = $_GET['destination'];
+    // Find out the first display which has a changed path and redirect to this url.
+    $old_view = views_get_view($form_state['view']->name);
+    foreach ($old_view->display as $id => $display) {
+      // Only check for displays with a path.
+      if (!isset($display->display_options['path'])) {
+        continue;
+      }
+      $old_path = $display->display_options['path'];
+      if (($display->display_plugin == 'page') && ($old_path == $destination) && ($old_path != $form_state['view']->display[$id]->display_options['path'])) {
+        $destination = $form_state['view']->display[$id]->display_options['path'];
+        unset($_GET['destination']);
+      }
+    }
+    $form_state['redirect'] = $destination;
   }
 
   $form_state['view']->save();
@@ -4721,8 +4740,8 @@ function views_ui_admin_settings_advanced() {
 
   $form['debug']['views_devel_output'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Enable views performance statistics via the Devel module'),
-    '#description' => t("Check this to enable some Views query and performance statistics <em>if Devel is installed</em>."),
+    '#title' => t('Enable views performance statistics/debug messages via the Devel module'),
+    '#description' => t("Check this to enable some Views query and performance statistics/debug messages <em>if Devel is installed</em>."),
     '#default_value' => variable_get('views_devel_output', FALSE),
   );
 
@@ -4741,10 +4760,14 @@ function views_ui_admin_settings_advanced() {
 
   $regions = system_region_list(variable_get('theme_default', 'garland'));
   $regions['watchdog'] = t('Watchdog');
+  if (module_exists('devel')) {
+    $regions['message'] = t('Devel message(dpm)');
+    $regions['drupal_debug'] = t('Devel logging (tmp://drupal_debug.txt)');
+  }
 
   $form['debug']['views_devel_region'] = array(
     '#type' => 'select',
-    '#title' => t('Page region to output performance statistics'),
+    '#title' => t('Page region to output performance statistics/debug messages'),
     '#default_value' => variable_get('views_devel_region', 'footer'),
     '#options' => $regions,
     '#dependency' => array('edit-views-devel-output' => array(1)),

@@ -6,9 +6,8 @@
 class i18nviews_handler_argument_taxonomy_index_tid extends views_handler_argument_term_node_tid {
   function title_query() {
     $titles = array();
-    // @todo: check vocabulary translation mode (if localization needed)
     $result = db_select('taxonomy_term_data', 'td')
-      ->fields('td', array('name', 'tid'))
+      ->fields('td', array('name', 'tid', 'vid'))
       ->condition('td.tid', $this->value)
       ->execute();
     foreach ($result as $term) {

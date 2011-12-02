@@ -319,3 +319,15 @@ function page_manager_pages_features_export_render($module, $data) {
   page_manager_get_tasks();
   return ctools_component_features_export_render('page_manager_pages', $module, $data);
 }
+
+/**
+ * Implements hook_features_revert() for page_manager.
+ */
+function page_manager_pages_features_revert($module) {
+  if ($pages = features_get_default('page_manager_pages', $module)) {
+    require_once drupal_get_path('module', 'ctools') . '/page_manager/plugins/tasks/page.inc';
+    foreach ($pages as $page) {
+      page_manager_page_delete($page);
+    }
+  }
+}

@@ -407,7 +407,7 @@ function drush_features_update_all() {
   drush_print(dt('The following modules will be updated: !modules', array('!modules' => implode(', ', $features_to_update))));
   if (drush_confirm(dt('Do you really want to continue?'))) {
     foreach ($features_to_update as $module_name) {
-      drush_backend_invoke('features-update '. $module_name);
+      drush_invoke_process(drush_sitealias_get_record('@self'), 'features-update', array($module_name));
     }
   }
   else {
@@ -539,7 +539,7 @@ function drush_features_revert_all() {
   drush_print(dt('The following modules will be reverted: !modules', array('!modules' => implode(', ', $features_to_revert))));
   if (drush_confirm(dt('Do you really want to continue?'))) {
     foreach ($features_to_revert as $module_name) {
-      drush_backend_invoke('features-revert '. $module_name, array('force' => $force));
+      drush_invoke_process(drush_sitealias_get_record('@self'), 'features-revert', array($module_name), array('force' => $force, '#integrate' => TRUE));
     }
   }
   else {
@@ -573,11 +573,11 @@ function drush_features_diff() {
     if (drush_confirm(dt('It seems that the Diff module is not available. Would you like to download and enable it?'))) {
       // Download it if it's not already here.
       $project_info = drush_get_projects();
-      if (empty($project_info['diff']) && !drush_backend_invoke('dl diff')) {
+      if (empty($project_info['diff']) && !drush_invoke_process(drush_sitealias_get_record('@self'), 'dl', array('diff'), array('#integrate' => TRUE))) {
         return drush_set_error(dt('Diff module could not be downloaded.'));
       }
 
-      if (!drush_backend_invoke('en diff')) {
+      if (!drush_invoke_process(drush_sitealias_get_record('@self'), 'en', array('diff'), array('#integrate' => TRUE))) {
         return drush_set_error(dt('Diff module could not be enabled.'));
       }
     }

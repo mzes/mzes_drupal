@@ -145,16 +145,24 @@ function panels_edit_display_form_submit($form, &$form_state) {
   $display->content = array();
 
   if (!empty($form_state['values']['panel']['pane'])) {
-    foreach ($form_state['values']['panel']['pane'] as $panel_id => $panes) {
-      $display->panels[$panel_id] = array();
+    foreach ($form_state['values']['panel']['pane'] as $region_id => $panes) {
+      $display->panels[$region_id] = array();
       if ($panes) {
         $pids = explode(',', $panes);
         // need to filter the array, b/c passing it in a hidden field can generate trash
         foreach (array_filter($pids) as $pid) {
           if ($old_content[$pid]) {
-            $display->panels[$panel_id][] = $pid;
-            $old_content[$pid]->panel = $panel_id;
+            $display->panels[$region_id][] = $pid;
+            $old_content[$pid]->panel = $region_id;
             $display->content[$pid] = $old_content[$pid];
+
+            // If the panel has region locking, make sure that the region
+            // the panel is in is applicable. This can happen if the panel
+            // was moved and then the lock changed and the server didn't
+            // know.
+            if (!empty($old_content[$pid]->locks) && $old_content[$pid]->locks['type'] == 'regions') {
+              $old_content[$pid]->locks['regions'][$region_id] = $region_id;
+            }
           }
         }
       }

@@ -82,8 +82,7 @@ class panels_renderer_editor extends panels_renderer_standard {
 
     $panel_buttons = $this->get_region_links($region_id);
 
-    // @todo this should be panel-region not panels-display -- but CSS and .js has to be updated.
-    $output = "<div class='panels-display' id='panel-pane-$region_id'>";
+    $output = "<div class='panel-region' id='panel-region-$region_id'>";
     $output .= $panel_buttons;
     $output .= "<h2 class='label'>" . $this->plugins['layout']['regions'][$region_id] . "</h2>";
     $output .= $content;
@@ -122,6 +121,18 @@ class panels_renderer_editor extends panels_renderer_standard {
       $block = ctools_content_admin_info($content_type, $pane->subtype, $pane->configuration, $this->display->context);
     }
 
+    $grabber_class = 'grab-title grabber';
+    // If there are region locks, add them.
+    if (!empty($pane->locks['type'])) {
+      if ($pane->locks['type'] == 'regions') {
+        $settings['Panels']['RegionLock'][$pane->pid] = $pane->locks['regions'];
+        drupal_add_js($settings, 'setting');
+      }
+      else if ($pane->locks['type'] == 'immovable') {
+        $grabber_class = 'grab-title not-grabber';
+      }
+    }
+
     $output = '';
     $class = 'panel-pane';
 
@@ -139,7 +150,7 @@ class panels_renderer_editor extends panels_renderer_standard {
       $block->title = t('No title');
     }
 
-    $output .= '<div class="grabber">';
+    $output .= '<div class="' . $grabber_class . '">';
     if ($buttons) {
       $output .= '<span class="buttons">' . $buttons . '</span>';
     }
@@ -392,6 +403,43 @@ class panels_renderer_editor extends panels_renderer_standard {
 
       $links[] = array(
         'title' => '<span class="dropdown-header">' . t('Visibility rules') . '</span>' . theme_links(array('links' => $visibility_links, 'attributes' => array(), 'heading' => array())),
+        'html' => TRUE,
+        'attributes' => array('class' => array('panels-sub-menu')),
+      );
+    }
+
+    if (user_access('use panels locks')) {
+      $links[] = array(
+        'title' => '<hr />',
+        'html' => TRUE,
+      );
+
+      $lock_type = !empty($pane->locks['type']) ? $pane->locks['type'] : 'none';
+      switch ($lock_type) {
+        case 'immovable':
+          $lock_method = t('Immovable');
+          break;
+        case 'regions':
+          $lock_method = t('Regions');
+          break;
+        case 'none':
+        default:
+          $lock_method = t('No lock');
+          break;
+      }
+
+      $lock_links[] = array(
+        'title' => $lock_method,
+        'attributes' => array('class' => array('panels-text')),
+      );
+      $lock_links[] = array(
+        'title' => t('Change'),
+        'href' => $this->get_url('lock', $pane->pid),
+        'attributes' => array('class' => array('ctools-use-modal')),
+      );
+
+      $links[] = array(
+        'title' => '<span class="dropdown-header">' . t('Locking') . '</span>' . theme_links(array('links' => $lock_links, 'attributes' => array(), 'heading' => array())),
         'html' => TRUE,
         'attributes' => array('class' => array('panels-sub-menu')),
       );
@@ -1243,6 +1291,38 @@ class panels_renderer_editor extends panels_renderer_standard {
   }
 
   /**
+   * AJAX entry point to configure CSS for a pane.
+   *
+   * @param $pid
+   *   The pane id to edit.
+   */
+  function ajax_lock($pid = NULL) {
+    if (empty($this->display->content[$pid])) {
+      ctools_modal_render(t('Error'), t('Invalid pane id.'));
+    }
+
+    $pane = &$this->display->content[$pid];
+    $subtype = ctools_content_get_subtype($pane->type, $pane->subtype);
+
+    $form_state = array(
+      'display' => &$this->display,
+      'pane' => &$pane,
+      'ajax' => TRUE,
+      'title' => t('Configure lock on !subtype_title', array('!subtype_title' => $subtype['title'])),
+    );
+
+    $output = ctools_modal_form_wrapper('panels_edit_configure_pane_lock_form', $form_state);
+    if (empty($form_state['executed'])) {
+      $this->commands = $output;
+      return;
+    }
+
+    panels_edit_cache_set($this->cache);
+    $this->command_update_pane($pid);
+    $this->commands[] = ctools_modal_command_dismiss();
+  }
+
+  /**
    * AJAX entry point to configure access settings for a pane.
    *
    * @param $pid
@@ -1436,7 +1516,7 @@ class panels_renderer_editor extends panels_renderer_standard {
     }
 
     $this->commands[] = ajax_command_replace("#panel-pane-$pane->pid", $this->render_pane($pane));
-    $this->commands[] = ajax_command_changed("#panel-pane-$pane->pid", "div.grabber span.text");
+    $this->commands[] = ajax_command_changed("#panel-pane-$pane->pid", "div.grab-title span.text");
   }
 
   /**
@@ -1450,8 +1530,8 @@ class panels_renderer_editor extends panels_renderer_standard {
       $pane = $this->display->content[$pid];
     }
 
-    $this->commands[] = ajax_command_append("#panel-pane-$pane->panel", $this->render_pane($pane));
-    $this->commands[] = ajax_command_changed("#panel-pane-$pane->pid", "div.grabber span.text");
+    $this->commands[] = ajax_command_append("#panel-region-$pane->panel", $this->render_pane($pane));
+    $this->commands[] = ajax_command_changed("#panel-pane-$pane->pid", "div.grab-title span.text");
   }
 
   /**
@@ -1753,6 +1833,81 @@ function panels_edit_configure_pane_css_form_submit($form, &$form_state) {
 
   $pane->css['css_id'] = $form_state['values']['css_id'];
   $pane->css['css_class'] = $form_state['values']['css_class'];
+}
+
+/**
+ * Configure lock on a pane form.
+ */
+function panels_edit_configure_pane_lock_form($form, &$form_state) {
+  $display = &$form_state['display'];
+  $pane = &$form_state['pane'];
+
+  if (empty($pane->locks)) {
+    $pane->locks = array('type' => 'none', 'regions' => array());
+  }
+
+  $form['type'] = array(
+    '#type' => 'radios',
+    '#title' => t('Lock type'),
+    '#options' => array(
+      'none' => t('No lock'),
+      'immovable' => t('Immovable'),
+      'regions' => t('Regions'),
+    ),
+    '#default_value' => $pane->locks['type'],
+  );
+
+  $layout = panels_get_layout($display->layout);
+  $regions = panels_get_regions($layout, $display);
+
+  $form['regions'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Regions'),
+    '#options' => $regions,
+    '#description' => t('Select which regions this pane can be moved to.'),
+    '#dependency' => array(
+      'radio:type' => array('regions'),
+    ),
+    '#default_value' => $pane->locks['regions'],
+  );
+
+  $form['#after_build'][] = 'panels_edit_configure_pane_lock_form_after_build';
+  $form['next'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+  );
+
+  return $form;
+}
+
+function panels_edit_configure_pane_lock_form_after_build($element, $form_state) {
+  $region = $form_state['pane']->panel;
+  $element['regions'][$region]['#required'] = TRUE;
+  $element['regions'][$region]['#disabled'] = TRUE;
+  $element['regions'][$region]['#value'] = TRUE;
+  $element['regions'][$region]['#checked'] = TRUE;
+  $element['regions'][$region]['#attributes']['disabled'] = TRUE;
+  return $element;
+}
+
+/**
+ * FAPI submission function for the lock configure form.
+ *
+ * All this does is set up $pane properly. The caller is responsible for
+ * actually storing this somewhere.
+ */
+function panels_edit_configure_pane_lock_form_submit($form, &$form_state) {
+  $pane = &$form_state['pane'];
+  $display = $form_state['display'];
+
+  // We set this to true but forms do not submit disabled checkboxes
+  // and fapi is ignoring the #value directive probably because it
+  // is checkboxes:
+  $region = $form_state['pane']->panel;
+  $form_state['values']['regions'][$region] = $region;
+
+  $pane->locks['type'] = $form_state['values']['type'];
+  $pane->locks['regions'] = array_filter($form_state['values']['regions']);
 }
 
 /**

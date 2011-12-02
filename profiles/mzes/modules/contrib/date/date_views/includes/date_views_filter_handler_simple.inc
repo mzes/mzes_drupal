@@ -17,6 +17,8 @@ class date_views_filter_handler_simple extends views_handler_filter_date {
       if (!empty($field) && !empty($field['type'])) {
         $this->date_handler->date_type = $field['type'];
       }
+      $this->date_handler->db_timezone = date_get_timezone_db($field['settings']['tz_handling']);
+      $this->date_handler->local_timezone = date_get_timezone($field['settings']['tz_handling']);
     }
     $this->form_submitted = FALSE;
     $this->date_handler->granularity = isset($options['granularity']) ? $options['granularity'] : 'day';
@@ -106,12 +108,8 @@ class date_views_filter_handler_simple extends views_handler_filter_date {
 
   }
 
-  function pre_query() {
-    // Setting the offset to avoid trying to use timezone adjustments for dates that don't need it.
-    $this->offset = in_array($this->date_handler->granularity, array('hour', 'minute', 'sec')) ? NULL : 0;
-  }
-
   function op_between($field) {
+
     // Add the delta field to the view so we can later find the value that matched our query.
     list($table_name, $field_name) = explode('.', $field);
     if (!empty($this->options['add_delta']) && (substr($field_name, -6) == '_value' || substr($field_name, -7) == '_value2')) {
@@ -120,7 +118,7 @@ class date_views_filter_handler_simple extends views_handler_filter_date {
 
     $min_value = $this->get_filter_value('min', $this->value['min']);
     $max_value = $this->get_filter_value('max', $this->value['max']);
-    $field = $this->date_handler->sql_field($field, $this->offset);
+    $field = $this->date_handler->sql_field($field);
     $field = $this->date_handler->sql_format($this->format, $field);
     $placeholder_min = $this->placeholder();
     $placeholder_max = $this->placeholder();
@@ -134,6 +132,7 @@ class date_views_filter_handler_simple extends views_handler_filter_date {
   }
 
   function op_simple($field) {
+
     // Add the delta field to the view so we can later find the value that matched our query.
     list($table_name, $field_name) = explode('.', $field);
     if (!empty($this->options['add_delta']) && (substr($field_name, -6) == '_value' || substr($field_name, -7) == '_value2')) {
@@ -141,7 +140,7 @@ class date_views_filter_handler_simple extends views_handler_filter_date {
     }
 
     $value = $this->get_filter_value('value', $this->value['value']);
-    $field = $this->date_handler->sql_field($field, $this->offset);
+    $field = $this->date_handler->sql_field($field);
     $field = $this->date_handler->sql_format($this->format, $field);
     $placeholder = $this->placeholder();
     $group = !empty($this->options['date_group']) ? $this->options['date_group'] : $this->options['group'];
@@ -317,11 +316,6 @@ class date_views_filter_handler_simple extends views_handler_filter_date {
       if (!isset($form_state['input'][$identifier][$prefix])) {
         $form_state['input'][$identifier][$prefix] = $this->value[$prefix];
       }
-      // Add relative value as non-editable.
-      $form[$relative_id] = array(
-        '#type' => 'value',
-        '#value' => $relative_value,
-      );
     }
     else {
       // UI when the date selector is on the views configuration screen.

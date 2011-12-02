@@ -18,6 +18,7 @@ function _nodeconnect_field_attach_form($entity_type, $entity, &$form, &$form_st
       $extra = $form[$field_name][$language]['#cardinality'] == 1 ? 'single-value' : '';
       $form[$field_name][$language][$key]["add_nodeconnect__{$field_name}_$key"] = array(
         '#type' => 'submit',
+				'#limit_validation_errors' => array(),
         '#value' => "New Content",
         '#name' => "add_nodeconnect__{$field_name}_$key",
         '#prefix' => "<div class = 'nodeconnect-add $extra'>",
@@ -39,6 +40,7 @@ function _nodeconnect_field_attach_form($entity_type, $entity, &$form, &$form_st
       );
       $form[$field_name][$language][$key]["edit_nodeconnect__{$field_name}_$key"] = array(
         '#type' => 'submit',
+				'#limit_validation_errors' => array(),
         '#value' => "Edit Content",
         '#name' => "edit_nodeconnect__{$field_name}_$key",
         '#prefix' => "<div class = 'nodeconnect-edit $extra'>",

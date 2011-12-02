@@ -167,7 +167,10 @@ function date_field_formatter_view($entity_type, $entity, $field, $instance, $la
           $vars['item'] = $item;
           $vars['dates'] = date_formatter_process($formatter, $entity_type, $entity, $field, $instance, $langcode, $item, $display);
           $vars['attributes'] = !empty($rdf_mapping) ? rdf_rdfa_attributes($rdf_mapping, $item['value']) : array();
-          $element[$delta] = array('#markup' => theme('date_display_combination', $vars));
+          $output = theme('date_display_combination', $vars);
+          if (!empty($output)) {
+            $element[$delta] = array('#markup' => theme('date_display_combination', $vars));
+          }
         }
       }
       break;
