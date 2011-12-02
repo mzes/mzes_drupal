@@ -18,6 +18,9 @@ function mzes_profile_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_profile_gender',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -106,6 +109,9 @@ function mzes_profile_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_profile_internal_email',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -200,6 +206,9 @@ function mzes_profile_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_profile_staff_external',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -394,6 +403,9 @@ function mzes_profile_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_profile_staff_rec_no',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(

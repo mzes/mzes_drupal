@@ -18,6 +18,9 @@ function mzes_publication_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_biblio_call_no_other',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -93,6 +96,9 @@ function mzes_publication_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_biblio_mzes_lang',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -168,6 +174,9 @@ function mzes_publication_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_biblio_mzes_rel_lehrst',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -247,6 +256,9 @@ function mzes_publication_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_biblio_mzes_review',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -319,6 +331,9 @@ function mzes_publication_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_biblio_mzes_series',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -391,6 +406,9 @@ function mzes_publication_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_biblio_note',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -465,6 +483,9 @@ function mzes_publication_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_biblio_price',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -540,6 +561,9 @@ function mzes_publication_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_biblio_unibib_copy',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -615,6 +639,9 @@ function mzes_publication_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_biblio_unibib_transfer',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(

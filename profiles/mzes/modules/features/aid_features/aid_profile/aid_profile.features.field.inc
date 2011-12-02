@@ -20,6 +20,9 @@ function aid_profile_field_default_fields() {
         0 => 'node',
       ),
       'field_name' => 'body',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -304,6 +307,9 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_profile_biblio_author_id',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(),
       'module' => 'number',
@@ -2698,6 +2704,9 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_profile_staff',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -2792,6 +2801,9 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_profile_staff_status',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -3450,6 +3462,9 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_profile_user',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'uid' => array(
           'columns' => array(
