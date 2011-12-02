@@ -3,3 +3,4 @@
  * @file
  * Code for the MZES Publication feature.
  */
+include_once('mzes_publication.features.inc');

@@ -3,3 +3,4 @@
  * @file
  * Code for the MZES Project feature.
  */
+include_once('mzes_project.features.inc');
