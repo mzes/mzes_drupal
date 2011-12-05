@@ -55,19 +55,43 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'Enter a short description of your profile here. This text will always be shown, even if there is no additional data entered in the bio or cv fields.',
       'display' => array(
-        'default' => array(
+        'aside' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '42',
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
+        'block' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => '5',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => '7',
         ),
         'full' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '42',
+          'weight' => '5',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '11',
         ),
         'profile_panel_detail' => array(
           'label' => 'hidden',
@@ -152,12 +176,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '15',
+          'type' => 'hidden',
+          'weight' => '21',
         ),
         'full' => array(
           'label' => 'above',
@@ -165,6 +200,13 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '15',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '17',
         ),
         'profile_panel_detail' => array(
           'label' => 'inline',
@@ -246,12 +288,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '44',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '44',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '45',
+          'type' => 'hidden',
+          'weight' => '44',
         ),
         'full' => array(
           'label' => 'above',
@@ -259,6 +312,13 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '45',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '18',
         ),
         'profile_panel_detail' => array(
           'label' => 'inline',
@@ -331,29 +391,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'Enter the author ID to link this profile explicitly to a certain biblio author. This is useful in cases, where a link via a user account does not exist.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '40',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '40',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => '39',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '40',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => '39',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '24',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '44',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -435,12 +501,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '25',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '25',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '21',
+          'type' => 'hidden',
+          'weight' => '25',
         ),
         'full' => array(
           'label' => 'above',
@@ -448,6 +525,13 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '21',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '15',
         ),
         'profile_panel_detail' => array(
           'label' => 'hidden',
@@ -532,19 +616,37 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '24',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '23',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '18',
+          'type' => 'hidden',
+          'weight' => '24',
         ),
         'full' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '18',
+          'weight' => '9',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '10',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -625,12 +727,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '26',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '26',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '22',
+          'type' => 'hidden',
+          'weight' => '26',
         ),
         'full' => array(
           'label' => 'above',
@@ -638,6 +751,13 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '22',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '14',
         ),
         'profile_panel_detail' => array(
           'label' => 'hidden',
@@ -723,19 +843,36 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '27',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '27',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'file',
           'settings' => array(),
-          'type' => 'file_default',
-          'weight' => '23',
+          'type' => 'hidden',
+          'weight' => '27',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'file',
+          'module' => 'media',
           'settings' => array(),
-          'type' => 'file_default',
+          'type' => 'media_large_icon',
           'weight' => '23',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '24',
         ),
         'profile_panel_detail' => array(
           'label' => 'hidden',
@@ -801,7 +938,7 @@ function aid_profile_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -826,19 +963,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'Departments or parts of the organization the person belongs to.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '36',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '37',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '34',
+          'type' => 'hidden',
+          'weight' => '36',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '34',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '41',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -905,19 +1058,40 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
-        'default' => array(
-          'label' => 'above',
+        'aside' => array(
+          'label' => 'hidden',
           'module' => 'email',
           'settings' => array(),
           'type' => 'email_default',
-          'weight' => '5',
+          'weight' => '2',
+        ),
+        'block' => array(
+          'label' => 'hidden',
+          'module' => 'email',
+          'settings' => array(),
+          'type' => 'email_default',
+          'weight' => '4',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'email',
+          'settings' => array(),
+          'type' => 'email_default',
+          'weight' => '4',
         ),
         'full' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'email',
           'settings' => array(),
           'type' => 'email_default',
-          'weight' => '5',
+          'weight' => '6',
+        ),
+        'print' => array(
+          'label' => 'inline',
+          'module' => 'email',
+          'settings' => array(),
+          'type' => 'email_plain',
+          'weight' => '6',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -980,7 +1154,7 @@ function aid_profile_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -1005,19 +1179,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'Enter the topics for which the staff member is known to be an expert.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '32',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '33',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '30',
+          'type' => 'hidden',
+          'weight' => '32',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '30',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '37',
         ),
         'profile_panel_detail' => array(
           'label' => 'inline',
@@ -1096,19 +1286,38 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
-        'default' => array(
+        'aside' => array(
           'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '24',
+        ),
+        'default' => array(
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '19',
+          'weight' => '3',
         ),
         'full' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '19',
+          'weight' => '5',
+        ),
+        'print' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '5',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -1191,19 +1400,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '1',
+          'type' => 'hidden',
+          'weight' => '14',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '1',
+          'type' => 'hidden',
+          'weight' => '16',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -1285,25 +1510,55 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
-        'default' => array(
-          'label' => 'above',
+        'aside' => array(
+          'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => '',
+            'image_link' => 'content',
+            'image_style' => 'square_thumbnail',
           ),
           'type' => 'image',
-          'weight' => '41',
+          'weight' => '0',
+        ),
+        'block' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'square_thumbnail',
+          ),
+          'type' => 'image',
+          'weight' => '0',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => 'content',
+            'image_style' => 'square_thumbnail',
+          ),
+          'type' => 'image',
+          'weight' => '1',
         ),
         'full' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => '',
+            'image_style' => 'medium',
           ),
           'type' => 'image',
-          'weight' => '41',
+          'weight' => '3',
+        ),
+        'print' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'medium',
+          ),
+          'type' => 'image',
+          'weight' => '0',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -1400,19 +1655,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '2',
+          'type' => 'hidden',
+          'weight' => '15',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '2',
+          'type' => 'hidden',
+          'weight' => '17',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '30',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -1474,7 +1745,7 @@ function aid_profile_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -1499,19 +1770,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'Enter the topics for which the staff member is available as an expert in the case of media inquiries.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '33',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '34',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '31',
+          'type' => 'hidden',
+          'weight' => '33',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '31',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '38',
         ),
         'profile_panel_detail' => array(
           'label' => 'inline',
@@ -1590,12 +1877,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '43',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '43',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '44',
+          'type' => 'hidden',
+          'weight' => '43',
         ),
         'full' => array(
           'label' => 'above',
@@ -1603,6 +1901,13 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '44',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '16',
         ),
         'profile_panel_detail' => array(
           'label' => 'inline',
@@ -1684,19 +1989,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '17',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '16',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '7',
+          'type' => 'hidden',
+          'weight' => '17',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '7',
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '32',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -1778,19 +2099,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'If this profile is an organization, enter the name of that organization here. This can take the place of first and last names to serve as the full name of this profile.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '16',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '3',
+          'type' => 'hidden',
+          'weight' => '16',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '3',
+          'type' => 'hidden',
+          'weight' => '18',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '31',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -1872,15 +2209,34 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
-        'default' => array(
+        'aside' => array(
           'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '7',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+        'full' => array(
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '4',
         ),
-        'full' => array(
-          'label' => 'above',
+        'print' => array(
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -1973,6 +2329,18 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
+        ),
         'default' => array(
           'label' => 'above',
           'module' => 'addressfield',
@@ -1983,7 +2351,7 @@ function aid_profile_field_default_fields() {
             'use_widget_handlers' => 1,
           ),
           'type' => 'addressfield_default',
-          'weight' => '25',
+          'weight' => '6',
         ),
         'full' => array(
           'label' => 'above',
@@ -1995,7 +2363,19 @@ function aid_profile_field_default_fields() {
             'use_widget_handlers' => 1,
           ),
           'type' => 'addressfield_default',
-          'weight' => '25',
+          'weight' => '8',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'addressfield',
+          'settings' => array(
+            'format_handlers' => array(
+              0 => 'address',
+            ),
+            'use_widget_handlers' => 1,
+          ),
+          'type' => 'addressfield_default',
+          'weight' => '9',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -2080,19 +2460,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'Text entered here will be prepended to the full name.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '16',
+          'type' => 'hidden',
+          'weight' => '22',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '16',
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '35',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -2191,12 +2587,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '46',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '46',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'node_reference_default',
-          'weight' => '48',
+          'type' => 'hidden',
+          'weight' => '46',
         ),
         'full' => array(
           'label' => 'above',
@@ -2204,6 +2611,12 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'node_reference_default',
           'weight' => '48',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -2285,12 +2698,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '31',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '27',
+          'type' => 'hidden',
+          'weight' => '29',
         ),
         'full' => array(
           'label' => 'above',
@@ -2298,6 +2722,13 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '27',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '13',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -2362,7 +2793,7 @@ function aid_profile_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -2387,12 +2818,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '49',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '49',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 53,
+          'type' => 'hidden',
+          'weight' => '49',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '53',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '49',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2459,12 +2913,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '31',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '32',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '29',
+          'type' => 'hidden',
+          'weight' => '31',
         ),
         'full' => array(
           'label' => 'above',
@@ -2472,6 +2937,13 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '29',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '12',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -2534,7 +3006,7 @@ function aid_profile_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -2559,12 +3031,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '50',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '50',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 54,
+          'type' => 'hidden',
+          'weight' => '50',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '54',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '50',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2632,12 +3127,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'Enter links to your social media pages, such as your Facbook profile, your Twitter account,  your LinkedIn profile, or personal website.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '28',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '30',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => '26',
+          'type' => 'hidden',
+          'weight' => '28',
         ),
         'full' => array(
           'label' => 'above',
@@ -2645,6 +3151,13 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'link_default',
           'weight' => '26',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_plain',
+          'weight' => '19',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -2741,19 +3254,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'This is used to indicate whether this is a staff member. This is helpful when creating lists of profiles for staff directories, while excluding special cases such as guests or organizations.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
-          'weight' => '14',
+          'type' => 'hidden',
+          'weight' => '20',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
+          'type' => 'hidden',
           'weight' => '14',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '34',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -2840,19 +3369,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '35',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '36',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
-          'weight' => '33',
+          'type' => 'hidden',
+          'weight' => '35',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
+          'type' => 'hidden',
           'weight' => '33',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '40',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -2931,19 +3476,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'Text entered here will be appended to the full name.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '23',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '17',
+          'type' => 'hidden',
+          'weight' => '23',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '17',
+          'type' => 'hidden',
+          'weight' => '23',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '36',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -3005,7 +3566,7 @@ function aid_profile_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -3030,19 +3591,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'Enter some keywords describing the person or organization.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '34',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '35',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '32',
+          'type' => 'hidden',
+          'weight' => '34',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '32',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '39',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -3124,19 +3701,38 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '30',
+        ),
+        'block' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
         'default' => array(
           'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '30',
+        ),
+        'full' => array(
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '28',
+          'weight' => '1',
         ),
-        'full' => array(
+        'print' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '28',
+          'weight' => '3',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -3220,19 +3816,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'Enter any academic or professional titles as a string of characters in the order you wish them to appear on the website.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '45',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '45',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '46',
+          'type' => 'hidden',
+          'weight' => '45',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '46',
+          'type' => 'hidden',
+          'weight' => '25',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '47',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -3314,12 +3926,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '48',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '48',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 52,
+          'type' => 'hidden',
+          'weight' => '48',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '26',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '48',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -3390,12 +4025,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '47',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '47',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => '49',
+          'type' => 'hidden',
+          'weight' => '47',
         ),
         'full' => array(
           'label' => 'above',
@@ -3403,6 +4049,13 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'link_default',
           'weight' => '49',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_separate',
+          'weight' => '20',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -3513,19 +4166,35 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => 'The user account that this profile is to be linked to.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '18',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'user_reference',
           'settings' => array(),
-          'type' => 'user_reference_default',
-          'weight' => '13',
+          'type' => 'hidden',
+          'weight' => '19',
         ),
         'full' => array(
           'label' => 'above',
-          'module' => 'user_reference',
           'settings' => array(),
-          'type' => 'user_reference_default',
-          'weight' => '13',
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '33',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -3614,6 +4283,18 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '28',
+        ),
         'default' => array(
           'label' => 'above',
           'module' => 'addressfield',
@@ -3624,7 +4305,7 @@ function aid_profile_field_default_fields() {
             'use_widget_handlers' => 1,
           ),
           'type' => 'addressfield_default',
-          'weight' => '24',
+          'weight' => '5',
         ),
         'full' => array(
           'label' => 'above',
@@ -3636,7 +4317,19 @@ function aid_profile_field_default_fields() {
             'use_widget_handlers' => 1,
           ),
           'type' => 'addressfield_default',
-          'weight' => '24',
+          'weight' => '7',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'addressfield',
+          'settings' => array(
+            'format_handlers' => array(
+              0 => 'address',
+            ),
+            'use_widget_handlers' => 1,
+          ),
+          'type' => 'addressfield_default',
+          'weight' => '8',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',
@@ -3722,12 +4415,23 @@ function aid_profile_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '18',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '17',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => '8',
+          'type' => 'hidden',
+          'weight' => '18',
         ),
         'full' => array(
           'label' => 'above',
@@ -3735,6 +4439,13 @@ function aid_profile_field_default_fields() {
           'settings' => array(),
           'type' => 'link_default',
           'weight' => '8',
+        ),
+        'print' => array(
+          'label' => 'inline',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_plain',
+          'weight' => '7',
         ),
         'profile_panel_detail' => array(
           'label' => 'above',

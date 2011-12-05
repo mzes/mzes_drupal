@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MZES DisplaySuite feature.
+ */
+
+include_once('mzes_displaysuite.features.inc');

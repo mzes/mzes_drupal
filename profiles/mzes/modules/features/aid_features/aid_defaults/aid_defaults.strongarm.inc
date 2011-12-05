@@ -28,7 +28,7 @@ function aid_defaults_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_default';
-  $strongarm->value = 'bartik';
+  $strongarm->value = 'mzes_2011';
   $export['theme_default'] = $strongarm;
 
   return $export;

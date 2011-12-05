@@ -55,12 +55,43 @@ function aid_press_release_field_default_fields() {
       'deleted' => '0',
       'description' => 'The full and a summary version of the content associated with the Press Release.',
       'display' => array(
+        'aside' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
+        'block' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => '1',
+        ),
         'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => '1',
+        ),
+        'full' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 0,
+          'weight' => '2',
+        ),
+        'print' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -137,12 +168,35 @@ function aid_press_release_field_default_fields() {
       'deleted' => '0',
       'description' => 'Upload files you would like to associate with this page.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '9',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'file',
           'settings' => array(),
-          'type' => 'file_default',
-          'weight' => 4,
+          'type' => 'hidden',
+          'weight' => '9',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -195,7 +249,7 @@ function aid_press_release_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -220,12 +274,36 @@ function aid_press_release_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '9',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 9,
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '1',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -272,7 +350,7 @@ function aid_press_release_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -297,12 +375,35 @@ function aid_press_release_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '8',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 8,
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -360,12 +461,35 @@ function aid_press_release_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => NULL,
           'settings' => array(),
-          'type' => 'media_large',
-          'weight' => 10,
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -459,12 +583,35 @@ function aid_press_release_field_default_fields() {
       'deleted' => '0',
       'description' => 'Enter the titles of nodes you would like to associate with this page.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '8',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'node_reference_default',
-          'weight' => 3,
+          'type' => 'hidden',
+          'weight' => '8',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '9',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -515,7 +662,7 @@ function aid_press_release_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -540,12 +687,35 @@ function aid_press_release_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '7',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 7,
+          'type' => 'hidden',
+          'weight' => '12',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -592,7 +762,7 @@ function aid_press_release_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -617,12 +787,35 @@ function aid_press_release_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 5,
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -672,7 +865,7 @@ function aid_press_release_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -697,12 +890,35 @@ function aid_press_release_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 6,
+          'type' => 'hidden',
+          'weight' => '11',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',

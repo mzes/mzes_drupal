@@ -60,7 +60,7 @@ function aid_featured_content_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -141,7 +141,7 @@ function aid_featured_content_field_default_fields() {
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => '',
+            'image_style' => 'feature-block',
           ),
           'type' => 'image',
           'weight' => '0',
@@ -223,10 +223,11 @@ function aid_featured_content_field_default_fields() {
       'description' => 'URL that the "Read more" button and Feature Image will link to.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
+          'module' => 'link',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '2',
+          'type' => 'link_default',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',

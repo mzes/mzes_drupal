@@ -55,12 +55,43 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '1',
+        ),
+        'block' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => '200',
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => '1',
+        ),
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => '1',
+        ),
+        'full' => array(
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 0,
+          'weight' => '1',
+        ),
+        'print' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -112,7 +143,7 @@ function aid_publication_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -137,12 +168,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 11,
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -193,7 +247,7 @@ function aid_publication_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -218,12 +272,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 12,
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -273,7 +350,7 @@ function aid_publication_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -298,12 +375,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 9,
+          'type' => 'hidden',
+          'weight' => '12',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -365,12 +465,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '18',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '18',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => NULL,
           'settings' => array(),
-          'type' => 'media_large',
-          'weight' => 15,
+          'type' => 'hidden',
+          'weight' => '18',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '18',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '18',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -462,12 +585,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'node_reference_default',
-          'weight' => 26,
+          'type' => 'hidden',
+          'weight' => '29',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -550,12 +696,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'node_reference_default',
-          'weight' => 16,
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -639,12 +808,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'node_reference',
           'settings' => array(),
-          'type' => 'node_reference_default',
-          'weight' => 17,
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '20',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -695,7 +887,7 @@ function aid_publication_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -720,12 +912,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 8,
+          'type' => 'hidden',
+          'weight' => '11',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -776,7 +991,7 @@ function aid_publication_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -801,12 +1016,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '27',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '27',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 24,
+          'type' => 'hidden',
+          'weight' => '27',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '27',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '27',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -853,7 +1091,7 @@ function aid_publication_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -878,12 +1116,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 7,
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -934,7 +1195,7 @@ function aid_publication_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -959,12 +1220,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 10,
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1036,12 +1320,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '23',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '23',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => 20,
+          'type' => 'hidden',
+          'weight' => '23',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '23',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '23',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1123,12 +1430,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => 18,
+          'type' => 'hidden',
+          'weight' => '21',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1210,12 +1540,35 @@ function aid_publication_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
         'default' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => 19,
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
         ),
         'teaser' => array(
           'label' => 'above',

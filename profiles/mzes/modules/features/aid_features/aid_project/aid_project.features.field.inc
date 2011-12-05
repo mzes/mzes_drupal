@@ -55,12 +55,43 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
+        ),
+        'block' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => '200',
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => '3',
+        ),
         'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => '3',
+        ),
+        'full' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => '12',
+        ),
+        'print' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '12',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -140,11 +171,37 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '36',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '36',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '30',
+          'weight' => '36',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '13',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '13',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -200,7 +257,7 @@ function aid_project_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -225,11 +282,37 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '13',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '4',
+          'weight' => '13',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '10',
+        ),
+        'print' => array(
+          'label' => 'inline',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_plain',
+          'weight' => '9',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -285,7 +368,7 @@ function aid_project_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -310,11 +393,40 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
-        'default' => array(
-          'label' => 'above',
+        'aside' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '18',
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '1',
+        ),
+        'block' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '1',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '1',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '1',
+        ),
+        'print' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_plain',
+          'weight' => '1',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -399,11 +511,41 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '25',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '25',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '19',
+          'weight' => '25',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'node_reference',
+          'settings' => array(
+            'node_reference_view_mode' => 'aside',
+          ),
+          'type' => 'node_reference_node',
+          'weight' => '3',
+        ),
+        'print' => array(
+          'label' => 'hidden',
+          'module' => 'node_reference',
+          'settings' => array(
+            'node_reference_view_mode' => 'aside',
+          ),
+          'type' => 'node_reference_node',
+          'weight' => '3',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -476,11 +618,29 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => 'Enter the duration of the project',
       'display' => array(
+        'aside' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '37',
+        ),
+        'block' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '37',
+        ),
         'default' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '37',
+        ),
+        'full' => array(
           'label' => 'inline',
           'module' => 'date',
           'settings' => array(
-            'format_type' => 'long',
+            'format_type' => 'year_month',
             'fromto' => 'both',
             'multiple_from' => '',
             'multiple_number' => '',
@@ -488,7 +648,21 @@ function aid_project_field_default_fields() {
             'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => '31',
+          'weight' => '8',
+        ),
+        'print' => array(
+          'label' => 'inline',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'year_month',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -549,7 +723,7 @@ function aid_project_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -574,11 +748,37 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '35',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '35',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '29',
+          'weight' => '35',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '7',
+        ),
+        'print' => array(
+          'label' => 'inline',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_plain',
+          'weight' => '8',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -635,7 +835,7 @@ function aid_project_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -660,11 +860,37 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '5',
+          'weight' => '14',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '9',
+        ),
+        'print' => array(
+          'label' => 'inline',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_plain',
+          'weight' => '10',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -728,11 +954,35 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '14',
+          'weight' => '22',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '30',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '31',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -818,11 +1068,35 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '23',
+          'weight' => '29',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '37',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '34',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -910,11 +1184,41 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '23',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '23',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '15',
+          'weight' => '23',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(
+            'node_reference_view_mode' => 'block',
+          ),
+          'type' => 'node_reference_node',
+          'weight' => '14',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(
+            'node_reference_view_mode' => 'block',
+          ),
+          'type' => 'node_reference_node',
+          'weight' => '14',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1003,11 +1307,36 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '24',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '24',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '16',
+          'weight' => '24',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'module' => 'node_reference',
+          'settings' => array(),
+          'type' => 'node_reference_default',
+          'weight' => '15',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1064,7 +1393,7 @@ function aid_project_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -1089,11 +1418,40 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
-        'default' => array(
-          'label' => 'above',
+        'aside' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '6',
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '2',
+        ),
+        'block' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '2',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '2',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_link',
+          'weight' => '2',
+        ),
+        'print' => array(
+          'label' => 'hidden',
+          'module' => 'i18n_taxonomy',
+          'settings' => array(),
+          'type' => 'i18n_taxonomy_term_reference_plain',
+          'weight' => '2',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1150,7 +1508,7 @@ function aid_project_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -1175,11 +1533,35 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '13',
+          'weight' => '21',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '27',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '30',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1264,11 +1646,41 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '27',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '27',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '21',
+          'weight' => '27',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'node_reference',
+          'settings' => array(
+            'node_reference_view_mode' => 'aside',
+          ),
+          'type' => 'node_reference_node',
+          'weight' => '4',
+        ),
+        'print' => array(
+          'label' => 'hidden',
+          'module' => 'node_reference',
+          'settings' => array(
+            'node_reference_view_mode' => 'aside',
+          ),
+          'type' => 'node_reference_node',
+          'weight' => '4',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1348,11 +1760,37 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '33',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '33',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '27',
+          'weight' => '33',
+        ),
+        'full' => array(
+          'label' => 'inline',
+          'module' => 'i18n_field',
+          'settings' => array(),
+          'type' => 'i18n_list_default',
+          'weight' => '5',
+        ),
+        'print' => array(
+          'label' => 'inline',
+          'module' => 'i18n_field',
+          'settings' => array(),
+          'type' => 'i18n_list_default',
+          'weight' => '5',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1405,7 +1843,7 @@ function aid_project_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -1430,11 +1868,35 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '16',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '16',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '8',
+          'weight' => '16',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '25',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '26',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1510,7 +1972,35 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+        'block' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
         'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+        'print' => array(
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
@@ -1592,11 +2082,35 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => 'Max. 120 characters. The title of the web page will be generated automatically from the short title which is therefore required.',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '12',
+          'weight' => '20',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '23',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1652,7 +2166,7 @@ function aid_project_field_default_fields() {
           0 => 'tid',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'i18n_taxonomy',
       'settings' => array(
         'allowed_values' => array(
           0 => array(
@@ -1677,11 +2191,35 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '15',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '7',
+          'weight' => '15',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '24',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '25',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1756,11 +2294,37 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '34',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '34',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '28',
+          'weight' => '34',
+        ),
+        'full' => array(
+          'label' => 'inline',
+          'module' => 'i18n_field',
+          'settings' => array(),
+          'type' => 'i18n_list_default',
+          'weight' => '6',
+        ),
+        'print' => array(
+          'label' => 'inline',
+          'module' => 'i18n_field',
+          'settings' => array(),
+          'type' => 'i18n_list_default',
+          'weight' => '6',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1834,11 +2398,35 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '18',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '18',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '10',
+          'weight' => '18',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '26',
+        ),
+        'print' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '28',
         ),
         'project_panel_detail' => array(
           'label' => 'above',
@@ -1926,10 +2514,36 @@ function aid_project_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'aside' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
+        'block' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
         'default' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
+          'weight' => '19',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_url',
+          'weight' => '11',
+        ),
+        'print' => array(
+          'label' => 'inline',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_plain',
           'weight' => '11',
         ),
         'project_panel_detail' => array(
